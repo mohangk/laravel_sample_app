@@ -3,7 +3,13 @@
 @section('content')
 
   <h1>
-    Users!
+    Users:
   </h1>
+
+  <ul>
+    @foreach($users as $user)
+      <li>{{ $user->name }}</li>
+    @endforeach
+  </ul>
 
 @stop
