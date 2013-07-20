@@ -1,0 +1,2 @@
+install phpenv - github.com/phpenv/phpenv
+curl -sS https://getcomposer.org/installer | php
