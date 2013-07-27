@@ -32,9 +32,12 @@ echo User::all();
 
 #### Fresh setup
 
-1. Install phpenv - github.com/phpenv/phpenv
-2. Install composer - `curl -sS https://getcomposer.org/installer | php`
-3. Install laravel with new project - `composer create-project laravel/laravel your-project-name --prefer-dist`
+1. Install phpenv - github.com/phpenv/phpenv  
+	a) after cloning the phpenv repo, `cd` in and `git submodule update` it'll be more verbose than lazily doing that when you ask for versions later  
+	b) you may need to `brew install bison gd`  
+	c) if you install bison you will need to link it `brew link bison --force` because it overwrites the system install  
+2. Install composer - `curl -sS https://getcomposer.org/installer | php`  
+3. Install laravel with new project - `composer create-project laravel/laravel your-project-name --prefer-dist`  
 
 
 
