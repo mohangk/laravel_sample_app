@@ -1,43 +1,51 @@
-# Sample laravel app
+# Our sample Laravel app
 
-### Notes
+## Setup:
 
-#### Starting the application
+- Create the database `laravel_sample_app_development` manually with `psql`.  
+- Install migrations `php artisan migrate:install`
+- Migrate and seed the database `php artisan migrate --seed`
 
-To start the application
+## Start the application:
 
-`php -S localhost:8000 server.php`
+	$ php artisan serve
 
+or
 
-#### Laravel console
-
-Laravel has a console by default `php artisan tinker` but it's not very nice.  Use `boris` instead:
-
-1. Run `php artisan boris`
-2. Execute commands - e.g: `echo User::all();`
+	$ php -S localhost:8000 server.php
 
 
-#### Testing
+## Console:
 
-1. Factories - https://packagist.org/packages/breerly/factory-girl-php (might not work with Laravel ORM ?)
+Laravel has a default console - `tinker` - but it's not very nice.  Use `boris` instead:
 
+	php artisan boris
+	> User::all();
 
-#### Adding new packages to application
+## Testing
 
-1. Add a dependency to vendor and composer.json at the same time
+  1. Feature spec.
+    - capybara page
+    - factories: https://packagist.org/packages/breerly/factory-girl-php (might not work with Laravel ORM ?)
 
-	`composer require davejamesmiller/laravel-boris dev-master`
+  2. (optional) Add any new dependencies to vendor and composer.json at the same time
+    
+  		composer require davejamesmiller/laravel-boris dev-master
 
+  3. Controller spec.
+  4. Unit spec.
 
-#### Fresh setup
+# Setting up a fresh project
 
-1. Install phpenv - github.com/phpenv/phpenv
-	a) after cloning the phpenv repo, `cd` in and `git submodule update` it'll be more verbose than lazily doing that when you ask for versions later
-	b) you may need to `brew install bison gd`
-	c) if you install bison you will need to link it `brew link bison --force` because it overwrites the system install
-2. Install composer - `curl -sS https://getcomposer.org/installer | php`
-3. Install laravel with new project - `composer create-project laravel/laravel your-project-name --prefer-dist`
+1. Install phpenv - `https://github.com/phpenv/phpenv`
+	- You may need to `brew install bison gd`. If so, you will need to link it `brew link bison --force` because it overwrites the system install.
+	- Compile php with Postgres support. Modify `./phpenv/etc/php.#.#.PLATFORM.source` to include:
+	
+    		--with-pgsql=/usr/local/bin/pg_config
+    		--with-pdo-pgsql=/usr/local/bin/pg_config
 
+2. Install composer - `curl -sS https://getcomposer.org/installer | php`.  Rename `composer.phar` to `composer` add it to `/usr/local/bin/`.
 
-
+3. Create a new Laravel project - `composer create-project laravel/laravel PROJECT_NAME --prefer-dist`4. 
+	- Optionally, you can run off of edge by simply cloning `https://github.com/laravel/laravel/` and creating a `master` branch.
 
