@@ -1,0 +1,13 @@
+{
+    "name": "d11wtq/boris",
+    "require": {
+        "php": ">=5.3.0",
+        "ext-readline": "*",
+        "ext-pcntl": "*",
+        "ext-posix": "*"
+    },
+    "autoload": {
+        "psr-0": {"Boris": "lib"}
+    },
+    "bin": ["bin/boris"]
+}
