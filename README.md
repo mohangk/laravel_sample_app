@@ -24,6 +24,13 @@ Laravel has a default console - `tinker` - but it's not very nice.  Use `boris` 
 
 ## Testing
 
+PHPUnit has been vendored.  To run the test execute
+
+    ./vendor/bin/phpunit
+
+That's quite verbose so it's recommended you add an alias in your shell.
+In order to debug a spec do: DEBUGGER.!!
+
   1. Feature spec.
     - capybara page
     - factories: https://packagist.org/packages/breerly/factory-girl-php (might not work with Laravel ORM ?)

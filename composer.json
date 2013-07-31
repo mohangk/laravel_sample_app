@@ -1,11 +1,17 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
-	"keywords": ["framework", "laravel"],
+	"name": "mohangk/laravel_sample_app",
+	"description": "A sample app built on the Laravel Framework.",
+	"keywords": ["laravel", "sample", "app", "rails"],
+
 	"require": {
 		"laravel/framework": "4.0.*",
 		"davejamesmiller/laravel-boris": "dev-master"
 	},
+
+  "require-dev": {
+    "phpunit/phpunit": "3.7.*"
+  },
+
 	"autoload": {
 		"classmap": [
 			"app/commands",
@@ -30,8 +36,10 @@
 			"php artisan key:generate"
 		]
 	},
+
 	"config": {
 		"preferred-install": "dist"
 	},
+
 	"minimum-stability": "dev"
 }
