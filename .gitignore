@@ -1,3 +1,6 @@
-compiled.php
-vendor
 .vagrant
+
+compiled.php
+
+public/builds
+vendor

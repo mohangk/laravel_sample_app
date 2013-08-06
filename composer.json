@@ -5,6 +5,7 @@
 
 	"require": {
 		"laravel/framework": "4.0.*",
+    "jasonlewis/basset": "dev-master",
 		"davejamesmiller/laravel-boris": "dev-master"
 	},
 
