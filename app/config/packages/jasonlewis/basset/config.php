@@ -33,10 +33,9 @@ return array(
             // Switch to the stylesheets directory and require the "less" and "sass" directories.
             // These directories both have a filter applied to them so that the built
             // collection will contain valid CSS.
-            $directory = $collection->directory('assets/stylesheets', function($collection)
+            $directory = $collection->directory('assets/stylesheets/scss', function($collection)
             {
-                $collection->requireDirectory('scss')->apply('Scss');
-                $collection->requireDirectory();
+                $collection->requireDirectory()->apply('Scss');
             });
 
             $directory->apply('CssMin');
