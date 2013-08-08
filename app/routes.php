@@ -12,15 +12,17 @@
 */
 
 
-Route::get(   'login',  'SessionsController@create'   );
-Route::post(  'login',  'SessionsController@store'    );
-Route::get(   'logout', 'SessionsController@destroy'  );
+Route::get(   'login', [ 'uses' => 'SessionsController@create',
+                         'as' => 'login' ]                );
+
+Route::post(  'login',  'SessionsController@store'        );
+Route::get(   'logout', 'SessionsController@destroy'      );
 
 Route::get(   'signup', 'RegistrationsController@create'  );
 Route::post(  'signup', 'RegistrationsController@store'   );
 
-Route::get('/', array('before' => 'auth',
-                      'uses' => 'HomeController@showWelcome'));
+Route::get('/', ['before' => 'auth',
+                 'uses' => 'HomeController@showWelcome']);
 
 Route::any('{all}', function($uri){
   return Redirect::to('login');
