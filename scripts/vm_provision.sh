@@ -36,6 +36,19 @@ sudo apt-get install php5-xdebug -y
 sudo apt-get install php5-readline -y
 sudo apt-get install php5-mcrypt -y
 
+#Setup xdebug for remote debugging
+XDEBUG_CONFIG_FILE=/etc/php5/mods-available/xdebug.ini
+XDEBUG_CONFIG_STRING='xdebug.remote'
+REMOTE_HOST='10.0.2.2' #This is the IP of the host as seen by the guest - need to figure a more dynamic way of doing this
+
+if ! grep -q $XDEBUG_CONFIG_STRING $XDEBUG_CONFIG_FILE; then
+  echo 'xdebug.remote_enable=true;' >> $XDEBUG_CONFIG_FILE
+  echo 'xdebug.remote_handler=dbgp;' >> $XDEBUG_CONFIG_FILE
+  echo "xdebug.remote_host=$REMOTE_HOST;" >> $XDEBUG_CONFIG_FILE
+  echo 'xdebug.remote_port=9000;' >> $XDEBUG_CONFIG_FILE
+  echo 'xdebug.remote_log=/tmp/xdebug_remote.log;' >> $XDEBUG_CONFIG_FILE
+fi
+
 #Install composer
 if ! which composer.phar > /dev/null; then
   curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin

@@ -16,9 +16,8 @@ Vagrant.configure("2") do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  
-  config.vm.network :forwarded_port, guest: 8000, host: 8000
-  # need to add postgres forwarding
+
+  config.vm.network :forwarded_port, guest: 8000,  host: 8000
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -54,7 +53,7 @@ Vagrant.configure("2") do |config|
   # View the documentation for the provider you're using for more
   # information on available options.
 
-  config.vm.provision :shell, path: 'vm_provision.sh'
+  config.vm.provision :shell, path: 'scripts/vm_provision.sh'
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
