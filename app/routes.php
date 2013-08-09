@@ -22,7 +22,7 @@ Route::get(   'signup', 'RegistrationsController@create'  );
 Route::post(  'signup', 'RegistrationsController@store'   );
 
 Route::get('/', ['before' => 'auth',
-                 'uses' => 'HomeController@showWelcome']);
+                 'uses' => 'HomeController@index']);
 
 Route::any('{all}', function($uri){
   return Redirect::to('login');
