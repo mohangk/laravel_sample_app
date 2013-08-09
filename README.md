@@ -41,7 +41,68 @@ Laravel has a default console - `tinker` - but it's not very nice.  Use `boris` 
 
         php artisan boris
         > User::all();
+        
+## Setup step debugging
 
+### Overview
+
+There are different parts to setting up step debugging for PHP. We will need to 
+
+ * Make sure xdebug is setup on vagrant and working properly
+ * Setup a browser extension that will help signalling to xdebug that the debugger session should be started
+ * Have an xdebug-client that will be able to speak to xdebug session 
+
+### Verify xdebug setup on Vagrant box
+
+1. The Vagrant provision script would of setup our xdebug for remote debugging in our ubuntu box. To make sure things are working on the vagrant side, start the application and hit a page. In a different `vagrant ssh` session, tail the xdebug log
+
+		~/vagrant$ tail -f /tmp/xdebug_remote.log
+		
+2. You should see the following output when you access the applciation
+
+		Log opened at 2013-08-09 04:39:05
+			
+### Install xdebug helper for Chrome
+
+1. Xdebug only enables itself when it receives the right flag in a request. 
+
+2. To easily enable and disable debugging, install [Xdebug helper](http://goo.gl/HuNptD) 
+
+3. When you enable debugging, the server will break rightaway and try to connect to your xdebug client, so only turn it on if you actually want to debug.	
+	
+### Install an xdebug client
+
+#### Installing MacGDBp
+
+1. Install from its [homepage](http://www.bluestatic.org/software/macgdbp/)
+2. This is not too useful for remote debugging as the breakpoints filenames don't correspond to the actual filenames (unless you symlink /vagrant to whever you have the laravel sample app setup on your machine) but its super easy to get started and useful as a quick sanity check that things are working.
+
+#### Installing Vdebug plugin for Vim
+
+1. Install Vdebug for remote debugging on your hostbox Vim instance. Copy the following into your plugin_config.vim. Change "/Users/mohan/Projects/laravel_sample_app" to where the root of project is on your machine, restart your vim and run :BundleInstall (This uses vundle, if you're using neo vim-config you're fine)
+
+		Bundle 'joonty/vdebug.git'
+		  let g:vdebug_options= {
+		            \    "port" : 9000,
+		            \    "server" : 'localhost',
+		            \    "timeout" : 20,
+		            \    "on_close" : 'detach',
+		            \    "break_on_open" : 0,
+		            \    "continuous_mode" : 0,
+		            \    "ide_key" : '',
+		            \    "path_maps" : {'/vagrant' : '/Users/mohan/Projects/laravel_sample_app'},
+		            \    "debug_window_level" : 0,
+		            \    "debug_file_level" : 1,
+		            \    "debug_file" : "/tmp/vdebug.log",
+		            \    "watch_window_style" : 'expanded',
+		            \    "marker_default" : '⬦',
+		            \    "marker_closed_tree" : '▸',
+		            \    "marker_open_tree" : '▾'
+		            \}
+		            
+2. I'll write a longer HOWTO use guide. For now though the plugin docs are pretty well written.		            
+		            
+		       
 ## Testing
 
 PHPUnit has been vendored.  To run the test execute
