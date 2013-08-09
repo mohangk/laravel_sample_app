@@ -3,8 +3,8 @@
 use Illuminate\Auth\UserInterface;
 
 class User extends Eloquent implements UserInterface {
-
-  public $errors;
+  use Authable;
+  use Validatable;
 
   public static $rules = [
     'name' => 'required',
@@ -12,26 +12,6 @@ class User extends Eloquent implements UserInterface {
   ];
 
   protected $fillable = array('name', 'email', 'password');
-
-  public function validate() {
-    $v = Validator::make($this->attributes, static::$rules); if ($v->passes()) return true;
-    $this->errors = $v->messages();
-    return false;
-  } 
-
-	/**
-   * UserInterface requires:
-   *   - getAuthIdentifier
-   *   - getAuthPassword
-	 */
-	public function getAuthIdentifier() {
-		return $this->getKey();
-	}
-
-	public function getAuthPassword() {
-		return $this->password;
-	}
-
 
 }
 
