@@ -2,13 +2,14 @@
 
 class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
+  protected $useDatabase = true;
+
 	/**
 	 * Creates the application.
 	 *
 	 * @return Symfony\Component\HttpKernel\HttpKernelInterface
 	 */
-	public function createApplication()
-	{
+	public function createApplication() {
 		$unitTesting = true;
 
 		$testEnvironment = 'testing';
@@ -16,14 +17,21 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
 		return require __DIR__.'/../bootstrap/start.php';
   }
 
+  public function setUp() {
+    parent::setUp();
+    if($this->useDatabase) {
+      Artisan::call('migrate:refresh');
+    }
+  }
+
+  public function tearDown() {
+    if($this->useDatabase) { }
+  }
 
 	/**
 	 * Helper methods exposing things like $this->get('posts')
-	 *
-	 * @return Symfony\Component\HttpKernel\HttpKernelInterface
 	 */
-  public function __call($method,$args)
-  {
+  public function __call($method,$args) {
     if (in_array($method, ['get', 'post', 'put', 'patch', 'delete'])) {
       return $this->call($method, $args[0]);
     }

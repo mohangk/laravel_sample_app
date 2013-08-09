@@ -8,7 +8,7 @@ class User extends Eloquent implements UserInterface {
 
   public static $rules = [
     'name' => 'required',
-    'email' => 'required|email'
+    'email' => 'required|unique:users|email'
   ];
 
   protected $fillable = array('name', 'email', 'password');

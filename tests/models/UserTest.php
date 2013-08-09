@@ -7,8 +7,8 @@ class UserTest extends TestCase {
   public function setUp() {
     parent::setUp();
 
-    $this->user = new User(['name' => 'Tommy Sullivan',
-                            'email' => 'tommy@example.com',
+    $this->user = new User(['name' => 'John Doe',
+                            'email' => 'user@example.com',
                             'password' => 'password']);
   }
 
@@ -24,5 +24,14 @@ class UserTest extends TestCase {
     $this->assertFalse($this->user->validate());
   }
 
+  public function testRequiresUniqueEmail() {
+    $this->user->save();
+
+    $user = new User(['name' => 'Not John Doe',
+                      'email' => 'user@example.com',
+                      'password' => 'password']);
+
+    $this->assertFalse($user->validate());
+  }
 }
 
