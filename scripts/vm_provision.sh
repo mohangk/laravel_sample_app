@@ -1,3 +1,7 @@
+update_repo() {     
+  sudo apt-get update -o Dir::Etc::sourcelist="sources.list.d/$1.list"         -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"; 
+}
+
 #Use a local mirror if available
 MIRROR_STRING='mirrors'
 SOURCES_LIST='/etc/apt/sources.list'
@@ -13,22 +17,34 @@ echo "LANGUAGE=en_US:en"  >  /etc/default/locale
 echo "LC_ALL=en_US.UTF-8" >> /etc/default/locale
 echo "LANG=en_US.UTF-8"   >> /etc/default/locale
 
-sudo apt-get update
+if test `find "/var/lib/apt/periodic/update-success-stamp" -mtime -1`;then
+  echo 'Skipping apt-get update'
+else
+  sudo apt-get update
+fi
 
-#install some development tools
+#Install some development tools
 sudo apt-get install git -y
 sudo apt-get install vim -y
 
-#install postgres and configure postgres for passwordless access - THIS IS NOT PRODUCTION SAFE
+#Install postgres and configure postgres for passwordless access - THIS IS NOT PRODUCTION SAFE
 sudo apt-get install postgresql-9.1 -y
 sed -i -e 's/md5/trust/g' /etc/postgresql/9.1/main/pg_hba.conf
 sudo service postgresql stop
 sudo service postgresql start
 
 #Install PHP 5.5 and dependencies
-sudo apt-get install python-software-properties -y
-sudo add-apt-repository ppa:ondrej/php5-experimental -y
-sudo apt-get update 
+
+PHP_REPO='/etc/apt/sources.list.d/ondrej-php5-raring.list'
+if [ -f $PHP_REPO ];then
+  echo "PHP5.5  repo already added"
+else
+  echo "Adding PHP5.5 repo"
+  sudo apt-get install python-software-properties -y
+  sudo add-apt-repository ppa:ondrej/php5 -y
+  update-repo ondrej-php5-raring  
+fi
+
 sudo apt-get install php5 -y
 sudo apt-get install php5-cli -y
 sudo apt-get install php5-pgsql -y
