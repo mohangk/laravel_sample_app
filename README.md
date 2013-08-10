@@ -46,21 +46,17 @@ Laravel has a default console - `tinker` - but it's not very nice.  Use `boris` 
 
 ### Overview
 
+We have created a [screencast](https://vimeo.com/72085960) to help with getting started with step debugging. 
+
 There are different parts to setting up step debugging for PHP. We will need to 
 
  * Make sure xdebug is setup on vagrant and working properly
  * Setup a browser extension that will help signalling to xdebug that the debugger session should be started
  * Have an xdebug-client that will be able to speak to xdebug session 
+ 
+### Xdebug setup on Vagrant box
 
-### Verify xdebug setup on Vagrant box
-
-1. The Vagrant provision script would of setup our xdebug for remote debugging in our ubuntu box. To make sure things are working on the vagrant side, start the application and hit a page. In a different `vagrant ssh` session, tail the xdebug log
-
-		~/vagrant$ tail -f /tmp/xdebug_remote.log
-		
-2. You should see the following output when you access the applciation
-
-		Log opened at 2013-08-09 04:39:05
+1. The Vagrant provision script would of setup our xdebug for remote debugging in our ubuntu box. 
 			
 ### Install xdebug helper for Chrome
 
@@ -75,7 +71,7 @@ There are different parts to setting up step debugging for PHP. We will need to
 #### Installing MacGDBp
 
 1. Install from its [homepage](http://www.bluestatic.org/software/macgdbp/)
-2. This is not too useful for remote debugging as the breakpoints filenames don't correspond to the actual filenames (unless you symlink /vagrant to whever you have the laravel sample app setup on your machine) but its super easy to get started and useful as a quick sanity check that things are working.
+2. Set break points from within the code by making a call to xdebug_break()
 
 #### Installing Vdebug plugin for Vim
 
