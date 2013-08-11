@@ -114,6 +114,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
     'Illuminate\Workbench\WorkbenchServiceProvider',
 
+    'Frozennode\Administrator\AdministratorServiceProvider',
     'Basset\BassetServiceProvider',
 
     'DaveJamesMiller\Boris\BorisServiceProvider',

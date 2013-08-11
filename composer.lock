@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "c8a95c3d65c50e76619c49bab553377c",
+    "hash": "6e08ff2136aa9a7f236755e7c2530cb8",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -51,81 +51,6 @@
                 "preload"
             ],
             "time": "2013-06-24 22:58:34"
-        },
-        {
-            "name": "d11wtq/boris",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/d11wtq/boris.git",
-                "reference": "v1.0.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/d11wtq/boris/zipball/v1.0.2",
-                "reference": "v1.0.2",
-                "shasum": ""
-            },
-            "require": {
-                "ext-pcntl": "*",
-                "ext-posix": "*",
-                "ext-readline": "*",
-                "php": ">=5.3.0"
-            },
-            "bin": [
-                "bin/boris"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Boris": "lib"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "time": "2013-06-26 14:14:53"
-        },
-        {
-            "name": "davejamesmiller/laravel-boris",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/davejamesmiller/laravel-boris.git",
-                "reference": "515f20fa3b791b2d14960be9cd7a246721389431"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/davejamesmiller/laravel-boris/zipball/515f20fa3b791b2d14960be9cd7a246721389431",
-                "reference": "515f20fa3b791b2d14960be9cd7a246721389431",
-                "shasum": ""
-            },
-            "require": {
-                "d11wtq/boris": "dev-master",
-                "illuminate/support": ">=4.0",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "DaveJamesMiller\\Boris": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT License"
-            ],
-            "authors": [
-                {
-                    "name": "Dave James Miller",
-                    "email": "dave@davejamesmiller.com",
-                    "homepage": "http://davejamesmiller.com/"
-                }
-            ],
-            "description": "Adds an 'artisan boris' command to run the Boris REPL in the Laravel environment.",
-            "homepage": "https://github.com/davejamesmiller/laravel-boris",
-            "keywords": [
-                "laravel"
-            ],
-            "time": "2013-07-20 17:57:10"
         },
         {
             "name": "doctrine/annotations",
@@ -414,12 +339,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "f3756f8d61bdcd1919f3a0a6de99c877661c73b7"
+                "reference": "dc2a5c3a58ef1a89c3746788aa392d893e74ae3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/f3756f8d61bdcd1919f3a0a6de99c877661c73b7",
-                "reference": "f3756f8d61bdcd1919f3a0a6de99c877661c73b7",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/dc2a5c3a58ef1a89c3746788aa392d893e74ae3c",
+                "reference": "dc2a5c3a58ef1a89c3746788aa392d893e74ae3c",
                 "shasum": ""
             },
             "require": {
@@ -476,7 +401,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2013-08-09 02:36:42"
+            "time": "2013-08-09 03:32:12"
         },
         {
             "name": "doctrine/inflector",
@@ -653,6 +578,58 @@
                 "zf2"
             ],
             "time": "2013-06-10 12:22:13"
+        },
+        {
+            "name": "frozennode/administrator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FrozenNode/Laravel-Administrator.git",
+                "reference": "v4.5.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FrozenNode/Laravel-Administrator/zipball/v4.5.0",
+                "reference": "v4.5.0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "laravel/framework": ">=4.0.0",
+                "mockery/mockery": "0.8.0",
+                "orchestra/testbench": "2.1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/controllers"
+                ],
+                "psr-0": {
+                    "Frozennode\\Administrator": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Hartigan",
+                    "email": "jan@frozennode.com"
+                }
+            ],
+            "description": "A database interface package for Laravel",
+            "keywords": [
+                "admin",
+                "administrator",
+                "cms",
+                "database",
+                "laravel",
+                "laravel-administrator"
+            ],
+            "time": "2013-08-01 09:14:38"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1600,12 +1577,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Filesystem.git",
-                "reference": "59ee050f3dd735d040f6b02a1422c98050e13a20"
+                "reference": "da0dcf60b7307f68667fecef8ccbb2b070bda7cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/59ee050f3dd735d040f6b02a1422c98050e13a20",
-                "reference": "59ee050f3dd735d040f6b02a1422c98050e13a20",
+                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/da0dcf60b7307f68667fecef8ccbb2b070bda7cf",
+                "reference": "da0dcf60b7307f68667fecef8ccbb2b070bda7cf",
                 "shasum": ""
             },
             "require": {
@@ -1638,7 +1615,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "http://symfony.com",
-            "time": "2013-07-21 20:19:01"
+            "time": "2013-08-09 07:26:54"
         },
         {
             "name": "symfony/finder",
@@ -1971,6 +1948,81 @@
     ],
     "packages-dev": [
         {
+            "name": "d11wtq/boris",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/d11wtq/boris.git",
+                "reference": "v1.0.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/d11wtq/boris/zipball/v1.0.2",
+                "reference": "v1.0.2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcntl": "*",
+                "ext-posix": "*",
+                "ext-readline": "*",
+                "php": ">=5.3.0"
+            },
+            "bin": [
+                "bin/boris"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Boris": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2013-06-26 14:14:53"
+        },
+        {
+            "name": "davejamesmiller/laravel-boris",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davejamesmiller/laravel-boris.git",
+                "reference": "515f20fa3b791b2d14960be9cd7a246721389431"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davejamesmiller/laravel-boris/zipball/515f20fa3b791b2d14960be9cd7a246721389431",
+                "reference": "515f20fa3b791b2d14960be9cd7a246721389431",
+                "shasum": ""
+            },
+            "require": {
+                "d11wtq/boris": "dev-master",
+                "illuminate/support": ">=4.0",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "DaveJamesMiller\\Boris": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT License"
+            ],
+            "authors": [
+                {
+                    "name": "Dave James Miller",
+                    "email": "dave@davejamesmiller.com",
+                    "homepage": "http://davejamesmiller.com/"
+                }
+            ],
+            "description": "Adds an 'artisan boris' command to run the Boris REPL in the Laravel environment.",
+            "homepage": "https://github.com/davejamesmiller/laravel-boris",
+            "keywords": [
+                "laravel"
+            ],
+            "time": "2013-07-20 17:57:10"
+        },
+        {
             "name": "mockery/mockery",
             "version": "dev-master",
             "source": {
@@ -2274,12 +2326,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3.7.23"
+                "reference": "3.7.24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3.7.23",
-                "reference": "3.7.23",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3.7.24",
+                "reference": "3.7.24",
                 "shasum": ""
             },
             "require": {
@@ -2340,7 +2392,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2013-08-02 19:14:44"
+            "time": "2013-08-09 06:58:24"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -2454,8 +2506,9 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "jasonlewis/basset": 20,
-        "davejamesmiller/laravel-boris": 20,
-        "mockery/mockery": 20
+        "frozennode/administrator": 20,
+        "mockery/mockery": 20,
+        "davejamesmiller/laravel-boris": 20
     },
     "platform": [
 
