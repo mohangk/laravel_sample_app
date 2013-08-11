@@ -121,6 +121,12 @@ In order to debug a spec do refer to the [setup step debugging](#setup_step_debu
 3. Controller spec.
 4. Unit spec.
 
+## Asset organization
+
+1. We use [Basset](https://github.com/jasonlewis/basset) for asset compilation.
+2. There's a configuration file in `app/config/packages/jasonlewis/basset/config.php`  that specifies the directories it'll compile.
+3. To add new scss, coffescript or javascript files to the project, put them in `app/public/stylesheets/scss`, `app/public/assets/javascripts/coffescripts` and `app/public/assets/javascripts` respectively.
+
 
 # Setting up a fresh project from scratch (on MacOSX)
 
@@ -131,8 +137,13 @@ In order to debug a spec do refer to the [setup step debugging](#setup_step_debu
     		--with-pgsql=/usr/local/bin/pg_config
     		--with-pdo-pgsql=/usr/local/bin/pg_config
 
-2. Install composer - `curl -sS https://getcomposer.org/installer | php`.  Rename `composer.phar` to `composer` add it to `/usr/local/bin/`.
+2. Install composer 
 
-3. Create a new Laravel project - `composer create-project laravel/laravel PROJECT_NAME --prefer-dist`4. 
-	- Optionally, you can run off of edge by simply cloning `https://github.com/laravel/laravel/` and creating a `master` branch.
+		curl -sS https://getcomposer.org/installer | php
+		
+3. Rename `composer.phar` to `composer` add it to `/usr/local/bin/`.
+
+4. Create a new Laravel project 
+	`composer create-project laravel/laravel PROJECT_NAME --prefer-dist`
+5. Optionally, you can run off of edge by simply cloning `https://github.com/laravel/laravel/` and creating a `master` branch.
 
