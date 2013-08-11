@@ -21,11 +21,13 @@
 1. Create the user & database
 
         createuser -Upostgres -hlocalhost -s vagrant
-        createdb -Upostgres -hlocalhost laravel_sample_app_development
+        createdb -upostgres -hlocalhost laravel_sample_app_development
+        createdb -upostgres -hlocalhost laravel_sample_app_test
 
 2. Install migrations 
 
         php artisan migrate:install
+        php artisan migrate:install --env=testing
 
 3. Migrate and seed the database 
 
@@ -42,7 +44,7 @@ Laravel has a default console - `tinker` - but it's not very nice.  Use `boris` 
         php artisan boris
         > User::all();
         
-## Setup step debugging
+## <a id="setup_step_debugging"></a>Setup step debugging
 
 ### Overview
 
@@ -103,10 +105,10 @@ There are different parts to setting up step debugging for PHP. We will need to
 
 PHPUnit has been vendored.  To run the test execute
 
-    ./vendor/bin/phpunit
+    ./vendor/bin/phpunit ./tests
 
 That's quite verbose so it's recommended you add an alias in your shell.
-In order to debug a spec do: DEBUGGER.!!
+In order to debug a spec do refer to the [setup step debugging](#setup_step_debugging) of this documentation.
 
 1. Feature spec.
   - capybara page
