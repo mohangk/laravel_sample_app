@@ -28,30 +28,25 @@ return array(
     
     'collections' => array(
 
-        'application' => function($collection)
-        {
-            // Switch to the stylesheets directory and require the "less" and "sass" directories.
-            // These directories both have a filter applied to them so that the built
-            // collection will contain valid CSS.
-            $directory = $collection->directory('assets/stylesheets/scss', function($collection)
-            {
-                $collection->requireDirectory()->apply('Scss');
-            });
+      'jquery' => function($collection) {
+        $directory = $collection->requireDirectory('assets/stylesheets/jquery');
+        $directory->apply('CssMin');
+        $directory->apply('UriRewriteFilter');
 
-            $directory->apply('CssMin');
-            $directory->apply('UriRewriteFilter');
+        $directory = $collection->requireDirectory('assets/javascripts/jquery');
+        $directory->apply('JsMin');
+      },
 
-            // Switch to the javascripts directory and require the "coffeescript" directory. As
-            // with the above directories we'll apply the CoffeeScript filter to the directory
-            // so the built collection contains valid JS.
-            $directory = $collection->directory('assets/javascripts', function($collection)
-            {
-                $collection->requireDirectory('coffeescripts')->apply('CoffeeScript');
-                $collection->requireDirectory();
-            });
+      'application' => function($collection) {
+        $directory = $collection->requireDirectory('assets/stylesheets');
+        $directory->apply('Scss');
+        $directory->apply('CssMin');
+        $directory->apply('UriRewriteFilter');
 
-            $directory->apply('JsMin');
-        }
+        $directory = $collection->requireDirectory('assets/javascripts');
+        $directory->apply('CoffeeScript');
+        $directory->apply('JsMin');
+      }
 
     ),
 
@@ -114,7 +109,7 @@ return array(
 
     'node_paths' => array(
 
-        base_path().'/node_modules'
+      base_path().'/node_modules'
 
     ),
 
@@ -163,85 +158,80 @@ return array(
 
     'aliases' => array(
 
-        'assets' => array(),
+      'assets' => array(),
 
-        'filters' => array(
+      'filters' => array(
 
-            /*
-            |--------------------------------------------------------------------------
-            | Sass Filter Alias
-            |--------------------------------------------------------------------------
-            |
-            | Filter is applied only when asset has a ".sass" or ".scss" extension and
-            | it will attempt to find missing constructor arguments.
-            |
-            */
+          /*
+          |--------------------------------------------------------------------------
+          | Sass Filter Alias
+          |--------------------------------------------------------------------------
+          |
+          | Filter is applied only when asset has a ".sass" or ".scss" extension and
+          | it will attempt to find missing constructor arguments.
+          |
+          */
 
-            'Scss' => array('Sass\ScssFilter', function($filter)
-            {
-                $filter->whenAssetIs('.*\.scss')->findMissingConstructorArgs();
-            }),
+          'Scss' => array('Sass\ScssFilter', function($filter) {
+              $filter->whenAssetIs('.*\.scss')->findMissingConstructorArgs();
+          }),
 
-            /*
-            |--------------------------------------------------------------------------
-            | CoffeeScript Filter Alias
-            |--------------------------------------------------------------------------
-            |
-            | Filter is applied only when asset has a ".coffee" extension and it will
-            | attempt to find missing constructor arguments.
-            |
-            */
+          /*
+          |--------------------------------------------------------------------------
+          | CoffeeScript Filter Alias
+          |--------------------------------------------------------------------------
+          |
+          | Filter is applied only when asset has a ".coffee" extension and it will
+          | attempt to find missing constructor arguments.
+          |
+          */
 
-            'CoffeeScript' => array('CoffeeScriptFilter', function($filter)
-            {
-                $filter->whenAssetIs('.*\.coffee')->findMissingConstructorArgs();
-            }),
+          'CoffeeScript' => array('CoffeeScriptFilter', function($filter) {
+              $filter->whenAssetIs('.*\.coffee')->findMissingConstructorArgs();
+          }),
 
-            /*
-            |--------------------------------------------------------------------------
-            | CssMin Filter Alias
-            |--------------------------------------------------------------------------
-            |
-            | Filter is applied only when within the production environment and when
-            | the "CssMin" class exists.
-            |
-            */
+          /*
+          |--------------------------------------------------------------------------
+          | CssMin Filter Alias
+          |--------------------------------------------------------------------------
+          |
+          | Filter is applied only when within the production environment and when
+          | the "CssMin" class exists.
+          |
+          */
 
-            'CssMin' => array('CssMinFilter', function($filter)
-            {
-                $filter->whenAssetIsStylesheet()->whenProductionBuild()->whenClassExists('CssMin');
-            }),
+          'CssMin' => array('CssMinFilter', function($filter) {
+              $filter->whenAssetIsStylesheet()->whenProductionBuild()->whenClassExists('CssMin');
+          }),
 
-            /*
-            |--------------------------------------------------------------------------
-            | UriRewrite Filter Alias
-            |--------------------------------------------------------------------------
-            |
-            | Filter gets a default argument of the path to the public directory.
-            |
-            */
+          /*
+          |--------------------------------------------------------------------------
+          | UriRewrite Filter Alias
+          |--------------------------------------------------------------------------
+          |
+          | Filter gets a default argument of the path to the public directory.
+          |
+          */
 
-            'UriRewriteFilter' => array('UriRewriteFilter', function($filter)
-            {
-                $filter->setArguments(public_path())->whenAssetIsStylesheet();
-            }),
+          'UriRewriteFilter' => array('UriRewriteFilter', function($filter) {
+              $filter->setArguments(public_path())->whenAssetIsStylesheet();
+          }),
 
-            /*
-            |--------------------------------------------------------------------------
-            | JsMin Filter Alias
-            |--------------------------------------------------------------------------
-            |
-            | Filter is applied only when within the production environment and when
-            | the "JsMin" class exists.
-            |
-            */
+          /*
+          |--------------------------------------------------------------------------
+          | JsMin Filter Alias
+          |--------------------------------------------------------------------------
+          |
+          | Filter is applied only when within the production environment and when
+          | the "JsMin" class exists.
+          |
+          */
 
-            'JsMin' => array('JSMinFilter', function($filter)
-            {
-                $filter->whenAssetIsJavascript()->whenProductionBuild()->whenClassExists('JSMin');
-            }),
+          'JsMin' => array('JSMinFilter', function($filter) {
+              $filter->whenAssetIsJavascript()->whenProductionBuild()->whenClassExists('JSMin');
+          }),
 
-        )
+      )
 
     )
 

@@ -47,10 +47,36 @@ fi
 
 sudo apt-get install php5 -y
 sudo apt-get install php5-cli -y
-sudo apt-get install php5-pgsql -y
-sudo apt-get install php5-xdebug -y
-sudo apt-get install php5-readline -y
+sudo apt-get install php5-common -y
+sudo apt-get install php5-curl -y
 sudo apt-get install php5-mcrypt -y
+sudo apt-get install php5-pgsql -y
+sudo apt-get install php5-readline -y
+sudo apt-get install php5-xdebug -y
+
+#Setup rubygems for scss asset compilation 
+ENVIRONMENT_FILE=/etc/environment
+GEM_HOME_STRING='GEM_HOME=/usr/local'
+if ! grep -q $GEM_HOME_STRING $ENVIRONMENT_FILE; then
+  sudo apt-get install rubygems -y
+
+  echo "export $GEM_HOME_STRING" >> $ENVIRONMENT_FILE
+  export $GEM_HOME_STRING
+
+  sudo chown -R vagrant:vagrant /usr/local
+  gem install bundler
+fi
+
+#Setup node for coffeescript compilation
+if ! which coffee > /dev/null; then
+  sudo apt-get install npm -y
+  sudo ln -s /usr/bin/nodejs /usr/bin/node
+
+  npm install -g coffee-script
+else
+  echo 'Coffee is installed'
+fi
+
 
 #Setup xdebug for remote debugging
 XDEBUG_CONFIG_FILE=/etc/php5/mods-available/xdebug.ini
@@ -66,8 +92,9 @@ if ! grep -q $XDEBUG_CONFIG_STRING $XDEBUG_CONFIG_FILE; then
 fi
 
 #Install composer
-if ! which composer.phar > /dev/null; then
+if ! which composer > /dev/null; then
   curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin
+  sudo mv /usr/local/bin/composer.phar /usr/local/bin/composer
 else
   echo 'Composer is installed'
 fi

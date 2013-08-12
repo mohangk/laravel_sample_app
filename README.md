@@ -14,15 +14,17 @@
 
 4. Install the dependencies for the sample application via 
 
-        cd /vagrant; composer.phar install
+        cd /vagrant
+        composer install
+        bundle install
 
 ## Project setup:
 
 1. Create the user & database
 
         createuser -Upostgres -hlocalhost -s vagrant
-        createdb -upostgres -hlocalhost laravel_sample_app_development
-        createdb -upostgres -hlocalhost laravel_sample_app_test
+        createdb -Upostgres -hlocalhost laravel_sample_app_development
+        createdb -Upostgres -hlocalhost laravel_sample_app_test
 
 2. Install migrations 
 
@@ -35,7 +37,7 @@
 
 ## Start the application:
 
-        $ php artisan serve --host <eth0 IP address if youre using vagrant>
+        php artisan serve --host <eth0 IP address if youre using vagrant>
 
 ## Console:
 

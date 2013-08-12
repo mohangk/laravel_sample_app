@@ -5,7 +5,8 @@
     <meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <title>laravel sample app</title>
 
-    {{ basset_stylesheets('application') }}
+    {{ basset_stylesheets( 'jquery', 'application') }}
+    {{ basset_javascripts( 'jquery', 'application') }}
   </head>
 
   <body>
