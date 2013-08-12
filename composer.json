@@ -1,48 +1,52 @@
 {
-	"name": "mohangk/laravel_sample_app",
-	"description": "A sample app built on the Laravel Framework.",
-	"keywords": ["laravel", "sample", "app", "rails"],
-
-	"require": {
-		"laravel/framework": "4.0.*",
+  "name": "mohangk/laravel_sample_app",
+  "description": "A sample app built on the Laravel Framework.",
+  "keywords": ["laravel", "sample", "app", "rails"],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/zvirusz/AspectMock"
+    }
+  ],  
+  "require": {
+    "laravel/framework": "4.0.*",
     "jasonlewis/basset": "dev-master",
-		"davejamesmiller/laravel-boris": "dev-master"
-	},
-
-  "require-dev": {
-    "phpunit/phpunit": "3.7.*",
-    "mockery/mockery": "dev-master"
+    "davejamesmiller/laravel-boris": "dev-master"
   },
 
-	"autoload": {
-		"classmap": [
-			"app/commands",
-			"app/controllers",
-			"app/lib",
-			"app/models",
-			"app/database/migrations",
-			"app/database/seeds",
-			"tests/TestCase.php"
-		]
-	},
-	"scripts": {
-		"post-install-cmd": [
-			"php artisan optimize"
-		],
-		"pre-update-cmd": [
-			"php artisan clear-compiled"
-		],
-		"post-update-cmd": [
-			"php artisan optimize"
-		],
-		"post-create-project-cmd": [
-			"php artisan key:generate"
-		]
-	},
+  "require-dev": {
+    "codeception/codeception": "dev-master",
+    "codeception/aspect-mock": "dev-patch-1"
+  },
 
-	"config": {
-		"preferred-install": "dist"
-	},
+  "autoload": {
+    "classmap": [
+      "app/commands",
+      "app/controllers",
+      "app/lib",
+      "app/models",
+      "app/database/migrations",
+      "app/database/seeds"
+    ]
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "php artisan optimize"
+    ],
+    "pre-update-cmd": [
+      "php artisan clear-compiled"
+    ],
+    "post-update-cmd": [
+      "php artisan optimize"
+    ],
+    "post-create-project-cmd": [
+      "php artisan key:generate"
+    ]
+  },
 
-	"minimum-stability": "dev"
+  "config": {
+    "preferred-install": "dist"
+  },
+
+  "minimum-stability": "dev"
 }

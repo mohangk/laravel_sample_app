@@ -15,7 +15,7 @@
 4. Install the dependencies for the sample application via 
 
         cd /vagrant
-        composer install
+        ./composer.phar install
         bundle install
 
 ## Project setup:
@@ -34,6 +34,7 @@
 3. Migrate and seed the database 
 
         php artisan migrate --seed
+        php artisan migrate --seed --env=testing
 
 ## Start the application:
 
@@ -46,7 +47,56 @@ Laravel has a default console - `tinker` - but it's not very nice.  Use `boris` 
         php artisan boris
         > User::all();
         
-## <a id="setup_step_debugging"></a>Setup step debugging
+## Testing
+
+
+### Test database 
+
+1. We have created a separate database `laravel_sample_app_test` for which all tests. Please don't use your development database for tests. We achieve this by creating an additional `testing` environment that can be accessed from artisan via the --env=testing flag.
+
+### Running all tests
+
+We're using Codeception for our specifications.  To run all the tests, execute:
+
+    	./codeception.phar run
+
+You can specify a particular suite:
+
+    	./codeception.phar run unit
+
+### Debugging tests
+
+1. In order to debug a test do refer to the [setup step debugging](#setup_step_debugging) of this documentation.
+
+### Acceptance tests
+
+1.  Acceptance tests drive the Firefox browser on the host machine, they have been setup for that. To start acceptance tests, firstly run the selenium server on the host machine, the provision script would of downloaded it into the `scripts` folder.
+
+		user@host-machine $ java -jar scripts/selenium-server-standalone-2.35.0.jar
+
+2. On vagrant, run your app in the test environment on port 3444
+	
+		vagrant@vagrant-ubuntu-raring-64:/vagrant$ php artisan serve --host 10.0.2.15 --port 3444
+
+2. On vagrant, start the acceptance tests
+	
+		vagrant@vagrant-ubuntu-raring-64:/vagrant$ ./vendor/bin/codecept run acceptance
+
+### Feature tests
+
+1. Feature specs will be like acceptance but without going through an actual server (like using Rack driver for capybara). This is how codeception does things, so best we just follow
+
+### Unit tests
+
+### Factories
+
+### Mocking
+
+### Javascript
+
+### CI
+        
+## <a id="setup_step_debugging"></a> Step debugging
 
 ### Overview
 
@@ -101,34 +151,20 @@ There are different parts to setting up step debugging for PHP. We will need to
 		            \}
 		            
 2. I'll write a longer HOWTO use guide. For now though the plugin docs are pretty well written.		            
-		            
-		       
-## Testing
-
-PHPUnit has been vendored.  To run the test execute
-
-    ./vendor/bin/phpunit ./tests
-
-That's quite verbose so it's recommended you add an alias in your shell.
-In order to debug a spec do refer to the [setup step debugging](#setup_step_debugging) of this documentation.
-
-1. Feature spec.
-  - capybara page
-  - factories: https://packagist.org/packages/breerly/factory-girl-php (might not work with Laravel ORM ?)
-
-2. (optional) Add any new dependencies to vendor and composer.json at the same time
-  
-    composer require davejamesmiller/laravel-boris dev-master
-
-3. Controller spec.
-4. Unit spec.
 
 ## Asset organization
 
 1. We use [Basset](https://github.com/jasonlewis/basset) for asset compilation.
-2. There's a configuration file in `app/config/packages/jasonlewis/basset/config.php`  that specifies the directories it'll compile.
-3. To add new scss, coffescript or javascript files to the project, put them in `app/public/stylesheets/scss`, `app/public/assets/javascripts/coffescripts` and `app/public/assets/javascripts` respectively.
+2. There's a configuration file in `app/config/packages/jasonlewis/basset/config.php` that specifies the directories it'll compile.
+3. To add new scss or coffescript files to the project, put them in `app/public/stylesheets/` and `app/public/assets/javascripts/` respectively.
 
+## Dependencies
+
+1. Add new dependencies to `composer.json` and then run `./composer.phar update`
+
+2. (optional) Add any new dependencies and vendor at the same time
+  
+    	./composer.phar require davejamesmiller/laravel-boris dev-master
 
 # Setting up a fresh project from scratch (on MacOSX)
 
@@ -140,12 +176,12 @@ In order to debug a spec do refer to the [setup step debugging](#setup_step_debu
     		--with-pdo-pgsql=/usr/local/bin/pg_config
 
 2. Install composer 
-
 		curl -sS https://getcomposer.org/installer | php
 		
-3. Rename `composer.phar` to `composer` add it to `/usr/local/bin/`.
+3. Create a new Laravel project 
+	`./composer.phar create-project laravel/laravel PROJECT_NAME --prefer-dist`
 
-4. Create a new Laravel project 
-	`composer create-project laravel/laravel PROJECT_NAME --prefer-dist`
-5. Optionally, you can run off of edge by simply cloning `https://github.com/laravel/laravel/` and creating a `master` branch.
+  OR
+
+  You can run off of edge by simply cloning `https://github.com/laravel/laravel/` and creating a `master` branch.
 

@@ -13,5 +13,10 @@ class User extends Eloquent implements UserInterface {
 
   protected $fillable = array('name', 'email', 'password');
 
+  public function getAuthPassword()
+	{
+		return $this->password;
+	}
+
 }
 

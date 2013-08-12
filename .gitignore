@@ -36,12 +36,12 @@ public/builds
 
 # Databases / logs #
 ####################
-
+tests/_log
 *.sqlite
 
 # Dependencies #
 ################
 
 vendor/
-
+scripts/selenium-server-standalone*
 

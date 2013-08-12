@@ -98,3 +98,6 @@ if ! which composer > /dev/null; then
 else
   echo 'Composer is installed'
 fi
+
+#Install Selenium server
+/vagrant/scripts/setup_selenium_server.sh
