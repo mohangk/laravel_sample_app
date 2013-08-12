@@ -1,6 +1,47 @@
+# Editor Droppings #
+####################
+.idea
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Tag files produced by exuberant ctags #
+#########################################
+TAGS
+!TAGS/
+tags
+!tags/
+
+# Env configuration #
+#####################
+
 .vagrant
 
-compiled.php
+.php-version
 
+.rvmrc
+.ruby-version
+.ruby-gemset
+
+# Compiled code/assets #
+########################
+
+compiled.php
 public/builds
-vendor
+
+# Databases / logs #
+####################
+
+*.sqlite
+
+# Dependencies #
+################
+
+vendor/
+
+
