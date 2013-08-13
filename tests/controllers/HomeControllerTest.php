@@ -7,7 +7,7 @@ class HomeControllerTest extends TestCase {
 	public function testShowWelcomeRequiresAuth() {
     Route::enableFilters();
 		$this->get('/');
-    $this->assertRedirectedTo('login');
+    $this->assertRedirectedTo('sign-in');
 	}
 
   public function testShowWelcomeHasUsers() {

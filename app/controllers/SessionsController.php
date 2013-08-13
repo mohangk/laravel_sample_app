@@ -15,13 +15,13 @@ class SessionsController extends BaseController {
     if(Auth::attempt($userParams)) {
       return Redirect::to('/');
     } else {
-      return Redirect::to('login');
+      return Redirect::to('sign-in');
     }
   }
 
   public function destroy() {
     Auth::logout();
-    return Redirect::to('login');
+    return Redirect::to('sign-in');
   }
 
 }

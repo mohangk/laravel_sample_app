@@ -12,18 +12,18 @@
 */
 
 
-Route::get(   'login', [ 'uses' => 'SessionsController@create',
-                         'as' => 'login' ]                );
+Route::get(   'sign-in', [ 'uses' => 'SessionsController@create',
+                           'as' => 'sign-in' ]                );
 
-Route::post(  'login',  'SessionsController@store'        );
-Route::get(   'logout', 'SessionsController@destroy'      );
+Route::post(  'sign-in',  'SessionsController@store'        );
+Route::get(   'sign-out', 'SessionsController@destroy'      );
 
-Route::get(   'signup', 'RegistrationsController@create'  );
-Route::post(  'signup', 'RegistrationsController@store'   );
+Route::get(   'sign-up', 'RegistrationsController@create'  );
+Route::post(  'sign-up', 'RegistrationsController@store'   );
 
 Route::get('/', ['before' => 'auth',
                  'uses' => 'HomeController@index']);
 
 Route::any('{all}', function($uri){
-  return Redirect::to('login');
+  return Redirect::to('sign-in');
 })->where('all', '.*');
