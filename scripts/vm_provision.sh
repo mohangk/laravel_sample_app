@@ -33,18 +33,7 @@ sed -i -e 's/md5/trust/g' /etc/postgresql/9.1/main/pg_hba.conf
 sudo service postgresql stop
 sudo service postgresql start
 
-#Install PHP 5.5 and dependencies
-
-PHP_REPO='/etc/apt/sources.list.d/ondrej-php5-raring.list'
-if [ -f $PHP_REPO ];then
-  echo "PHP5.5  repo already added"
-else
-  echo "Adding PHP5.5 repo"
-  sudo apt-get install python-software-properties -y
-  sudo add-apt-repository ppa:ondrej/php5 -y
-  update-repo ondrej-php5-raring  
-fi
-
+#Install PHP 5.4 and dependencies
 sudo apt-get install php5 -y
 sudo apt-get install php5-cli -y
 sudo apt-get install php5-common -y
@@ -76,7 +65,6 @@ if ! which coffee > /dev/null; then
 else
   echo 'Coffee is installed'
 fi
-
 
 #Setup xdebug for remote debugging
 XDEBUG_CONFIG_FILE=/etc/php5/mods-available/xdebug.ini
