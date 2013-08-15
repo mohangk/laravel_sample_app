@@ -36,8 +36,11 @@ public/builds
 
 # Databases / logs #
 ####################
-tests/_log
 *.sqlite
+
+chromedriver.log
+libpeerconnection.log
+tests/_log
 
 # Dependencies #
 ################
