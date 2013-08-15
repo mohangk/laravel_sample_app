@@ -14,8 +14,13 @@ class RegistrationsController extends BaseController {
     );
 
     $user = new User($userParams);
-    $user->save();
-    return Redirect::to('sign-in');
+    if($user->save()) {
+      Auth::login($user);
+      return Redirect::to('/');
+    } else {
+      return Redirect::to('sign-in');
+    }
+    
   }
 
 }

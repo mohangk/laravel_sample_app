@@ -11,6 +11,9 @@ $kernel->init([
 
 $app = require_once __DIR__.'/../bootstrap/start.php';
 
-// automatically dump the database, except that it 
-// keeps the 'production' environment.. fuck
-// Artisan::call('testing:dump', ['--env' => 'testing']);
+// seed the production database because that's what acceptance tests run in
+Artisan::call('migrate:refresh'); 
+Artisan::call('db:seed'); 
+
+// i would like to run 
+// Artisan::call("testing:dump") and use the Db module.

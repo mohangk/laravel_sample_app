@@ -9,11 +9,11 @@ $I->fillField('password','password');
 $I->fillField('password_confirmation','password');
 $I->click('Sign Up');
 
-// This isn't working properly because the DB isn't being seeded and
-// rolled back.  Right now it's running against the 'production' database!?
+// This isn't working properly because the Db module
+// isn't working for pgsql
 //
 // $I->seeInDatabase('users', ['email' => 'user@example.com' ]);
 
-// $I->seeCurrentUrlEquals('/');
-// $I->see('Users:', 'h1');
-// $I->see('John Doe', 'ul li');
+$I->seeCurrentUrlEquals('/');
+$I->see('Users:', 'h1');
+$I->see('John Doe', 'ul li');
