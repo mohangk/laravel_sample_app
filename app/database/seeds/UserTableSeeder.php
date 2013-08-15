@@ -2,8 +2,9 @@
 
 class UserTableSeeder extends Seeder {
 
-  public function run()
-  {
+  public function run() {
+
+    $this->command->info("The environment is ".App::environment());
 
     DB::table('users')->delete();
 

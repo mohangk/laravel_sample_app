@@ -1,18 +1,21 @@
 paths:
-    tests: tests
-    log: tests/_log
-    data: tests/_data
-    helpers: tests/_helpers
+  tests: tests
+  log: tests/_log
+  data: tests/_data
+  helpers: tests/_helpers
+
 settings:
-    bootstrap: _bootstrap.php
-    suite_class: \PHPUnit_Framework_TestSuite
-    colors: true
-    memory_limit: 1024M
-    log: true
+  bootstrap: _bootstrap.php
+  suite_class: \PHPUnit_Framework_TestSuite
+  colors: true
+  memory_limit: 1024M
+  log: true
+
 modules:
-    config:
-        Db:
-            dsn: ''
-            user: ''
-            password: ''
-            dump: tests/_data/dump.sql
+  config:
+    Db:
+      driver: 'pgsql'
+      dsn: 'pgsql:host=localhost;dbname=laravel_sample_app_test'
+      user: 'vagrant'
+      password: ''
+      dump: tests/_data/dump.sql

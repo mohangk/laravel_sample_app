@@ -11,3 +11,6 @@ $kernel->init([
 
 $app = require_once __DIR__.'/../bootstrap/start.php';
 
+// automatically dump the database, except that it 
+// keeps the 'production' environment.. fuck
+// Artisan::call('testing:dump', ['--env' => 'testing']);

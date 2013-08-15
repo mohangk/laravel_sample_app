@@ -1,8 +1,8 @@
 <?php
 
 $I = new WebGuy($scenario);
-$I->wantTo('sign in and see metrics');
-$I->lookForwardTo('viewing page views per month');
+$I->wantTo('sign in and see the home page');
+$I->lookForwardTo('viewing the latest metrics');
 $I->amOnPage('/');
 $I->seeCurrentUrlEquals('/sign-in');
 $I->fillField('email','mohan@example.com');

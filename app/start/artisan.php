@@ -11,3 +11,4 @@
 |
 */
 
+$artisan->add(new TestingDump());
