@@ -9,7 +9,7 @@
     {{ basset_javascripts( 'jquery', 'application') }}
   </head>
 
-  <body>
+  <body class="{{ Helper::controllerName() }} {{ Helper::actionName() }}">
     <h1>Laravel Quickstart</h1>
 
     @yield('content')

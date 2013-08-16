@@ -1,6 +1,6 @@
 <?php
-use Codeception\Util\Stub;
-use AspectMock\Test;
+
+use AspectMock\Test as test;
 
 class UserTest extends \Codeception\TestCase\Test {
 
@@ -13,8 +13,10 @@ class UserTest extends \Codeception\TestCase\Test {
     }
   
     protected function _after() {
-      Test::clean();
+      test::clean();
     }
+
+
 
     public function testRequiresName() {
       $this->assertTrue($this->user->validate());
@@ -39,7 +41,7 @@ class UserTest extends \Codeception\TestCase\Test {
     }
 
     public function testMocking() {
-      Test::double('User',['getAuthPassword' => '1234']);
+      test::double('User', ['getAuthPassword' => '1234']);
       $user = new User;
       $this->assertEquals('1234', $user->getAuthPassword());
     }
