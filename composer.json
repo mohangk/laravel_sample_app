@@ -12,7 +12,8 @@
     "laravel/framework": "4.0.*",
     "jasonlewis/basset": "dev-master",
     "davejamesmiller/laravel-boris": "dev-master",
-    "lisachenko/go-aop-php": "dev-master#98641c8"
+    "lisachenko/go-aop-php": "dev-master#98641c8",
+    "way/generators": "dev-master"
   },
 
   "require-dev": {
