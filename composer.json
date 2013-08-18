@@ -2,12 +2,13 @@
   "name": "mohangk/laravel_sample_app",
   "description": "A sample app built on the Laravel Framework.",
   "keywords": ["laravel", "sample", "app", "rails"],
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/zvirusz/AspectMock"
-    }
-  ],  
+  "repositories": [{
+    "type": "vcs",
+    "url": "https://github.com/sillylogger/Codeception"
+  },{
+    "type": "vcs",
+    "url": "https://github.com/zvirusz/AspectMock"
+  }],  
   "require": {
     "laravel/framework": "4.0.*",
     "jasonlewis/basset": "dev-master",
@@ -17,7 +18,7 @@
   },
 
   "require-dev": {
-    "codeception/codeception": "dev-master",
+    "codeception/codeception": "dev-rollback_transactions",
     "codeception/aspect-mock": "dev-patch-1"
   },
 
