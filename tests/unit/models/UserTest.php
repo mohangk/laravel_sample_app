@@ -16,8 +16,6 @@ class UserTest extends \Codeception\TestCase\Test {
       test::clean();
     }
 
-
-
     public function testRequiresName() {
       $this->assertTrue($this->user->validate());
       $this->user->name = null;

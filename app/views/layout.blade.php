@@ -10,8 +10,20 @@
   </head>
 
   <body class="{{ Helper::controllerName() }} {{ Helper::actionName() }}">
-    <h1>Laravel Quickstart</h1>
 
-    @yield('content')
+    <div id="container">
+
+      <header class="main">
+        <h1>Laravel Quickstart</h1>
+      </header>
+      
+      <article class="main">
+        @yield('content')
+      </article>
+
+      <footer class="main">
+      </footer>
+    </div>
+
   </body>
 </html>

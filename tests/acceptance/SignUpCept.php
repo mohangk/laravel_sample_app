@@ -6,7 +6,6 @@ $I->amOnPage('/sign-up');
 $I->fillField('name','John Doe');
 $I->fillField('email','user@example.com');
 $I->fillField('password','password');
-$I->fillField('password_confirmation','password');
 $I->click('Sign Up');
 
 // This isn't working properly because the Db module
@@ -16,4 +15,4 @@ $I->click('Sign Up');
 
 $I->seeCurrentUrlEquals('/');
 $I->see('Users:', 'h1');
-$I->see('John Doe', 'ul li');
+$I->see('John Doe', 'tbody tr td');

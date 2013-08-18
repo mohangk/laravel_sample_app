@@ -10,4 +10,4 @@ $I->fillField('password','password');
 $I->click('Sign In');
 $I->seeCurrentUrlEquals('/');
 $I->see('Users:', 'h1');
-$I->see('Mohan Krishnan', 'ul li');
+$I->see('Mohan Krishnan', 'tbody tr td');
