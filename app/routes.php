@@ -11,15 +11,18 @@
 |
 */
 
-
-Route::get(   'sign-in', [ 'uses' => 'SessionsController@create',
-                           'as' => 'sign-in' ]                );
-
-Route::post(  'sign-in',  'SessionsController@store'        );
-Route::get(   'sign-out', 'SessionsController@destroy'      );
+Route::get(   'sign-in',                  [ 'uses' => 'SessionsController@create',
+                                            'as' => 'sign-in' ]             );
 
 Route::get(   'sign-up', 'RegistrationsController@create'  );
-Route::post(  'sign-up', 'RegistrationsController@store'   );
+
+Route::group(['before' => 'csrf'], function() {
+  Route::post(  'sign-in',  'SessionsController@store'       );
+  Route::post(  'sign-up',  'RegistrationsController@store'   );
+});
+
+Route::get(   'sign-out', 'SessionsController@destroy'      );
+
 
 Route::get('/', ['before' => 'auth',
                  'uses' => 'HomeController@index']);
