@@ -13,10 +13,11 @@ class User extends Eloquent implements UserInterface {
 
   protected $fillable = array('name', 'email', 'password');
 
-  public function getAuthPassword()
-	{
+  public function getAuthPassword() {
 		return $this->password;
-	}
+  }
+
+  // hook to call save only if $this->valid() and return the valid result?
 
 }
 

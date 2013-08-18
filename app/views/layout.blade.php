@@ -16,8 +16,14 @@
       <header class="main">
         <h1>Laravel Quickstart</h1>
       </header>
-      
+
       <article class="main">
+        @if (Session::has('message'))
+          <div class="flash message">
+            <p>{{ Session::get('message') }}</p>
+          </div>
+        @endif
+
         @yield('content')
       </article>
 

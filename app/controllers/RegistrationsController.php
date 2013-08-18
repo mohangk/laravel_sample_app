@@ -7,20 +7,25 @@ class RegistrationsController extends BaseController {
   }
 
   public function store() {
-    $userParams = array(
-      'name' => Input::get('name'),
-      'email' => Input::get('email'),
-      'password' => Hash::make(Input::get('password'))
-    );
+    $user = new User($this->registrationParams());
 
-    $user = new User($userParams);
-    if($user->save()) {
+    if($user->valid()) {
+      $user->save();
       Auth::login($user);
       return Redirect::to('/');
     } else {
-      return Redirect::to('sign-in');
+      return Redirect::to('sign-up')
+        ->withInput()
+        ->withErrors($user->errors)
+        ->with('message', 'There were validation errors.');
     }
-    
+
+  }
+
+  private function registrationParams() {
+    $params = Input::only('name', 'email', 'password');
+    $params['password'] = Hash::make($params['password']);
+    return $params;
   }
 
 }

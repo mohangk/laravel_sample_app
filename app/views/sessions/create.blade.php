@@ -2,7 +2,9 @@
 
 @section('content')
 
-  {{ Form::open([ 'url' => URL::to('sign-in'), 'method' => 'post' ]) }}
+  {{ Form::open([ 'url' => URL::to('sign-in'),
+                  'method' => 'post' ]) }}
+
     <ul>
       <li>
         {{ Form::label('email') }}

@@ -2,7 +2,12 @@
 
 @section('content')
 
-  {{ Form::open([ 'url' => URL::to('sign-up'), 'method' => 'post' ]) }}
+  {{ Form::open([ 'url' => URL::to('sign-up'),
+                  'method' => 'post',
+                  'autocomplete' => 'off'] ) }}
+
+    @include('shared/errors')
+
     <ul>
       <li>
         {{ Form::label('name') }}
