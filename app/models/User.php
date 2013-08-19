@@ -9,7 +9,9 @@ class User extends Eloquent implements UserInterface {
   public static $rules = [
     'name' => 'required',
     'email' => 'required|unique:users|email'
-  ];
+    ];
+
+  public static $customMessages = [];
 
   protected $fillable = array('name', 'email', 'password',
                               'google_access_token', 'google_access_token_expires_at', 'google_photoURL');

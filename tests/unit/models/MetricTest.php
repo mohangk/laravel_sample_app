@@ -18,21 +18,21 @@ class MetricTest extends \Codeception\TestCase\Test {
   }
 
   public function testRequiresDate() {
-    $this->assertTrue($this->metric->valid());
+    $this->assertTrue($this->metric->isValid());
     $this->metric->date = 'foobar';
-    $this->assertFalse($this->metric->valid());
+    $this->assertFalse($this->metric->isValid());
   }
 
   public function testRequiresType() {
-    $this->assertTrue($this->metric->valid());
+    $this->assertTrue($this->metric->isValid());
     $this->metric->type = null;
-    $this->assertFalse($this->metric->valid());
+    $this->assertFalse($this->metric->isValid());
   }
 
   public function testRequiresCount() {
-    $this->assertTrue($this->metric->valid());
+    $this->assertTrue($this->metric->isValid());
     $this->metric->count = 'foobar';
-    $this->assertFalse($this->metric->valid());
+    $this->assertFalse($this->metric->isValid());
   }
 
   public function testFindOrInitialize() {

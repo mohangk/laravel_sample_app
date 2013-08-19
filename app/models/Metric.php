@@ -12,6 +12,7 @@ class Metric extends Eloquent {
     'count' => 'required|integer'
   ];
 
+  public static $customMessages = [];
 
   // public function getDates() {
   //   return ['created_at', 'update_at', 'date'];

@@ -17,15 +17,15 @@ class UserTest extends \Codeception\TestCase\Test {
     }
 
     public function testRequiresName() {
-      $this->assertTrue($this->user->valid());
+      $this->assertTrue($this->user->isValid());
       $this->user->name = null;
-      $this->assertFalse($this->user->valid());
+      $this->assertFalse($this->user->isValid());
     }
 
     public function testRequiresValidEmail() {
-      $this->assertTrue($this->user->valid());
+      $this->assertTrue($this->user->isValid());
       $this->user->email = 'foobar';
-      $this->assertFalse($this->user->valid());
+      $this->assertFalse($this->user->isValid());
     }
 
     public function testRequiresUniqueEmail() {
@@ -35,7 +35,7 @@ class UserTest extends \Codeception\TestCase\Test {
                         'email' => 'user@example.com',
                         'password' => 'password']);
 
-      $this->assertFalse($user->valid());
+      $this->assertFalse($user->save());
     }
 
     public function testMocking() {

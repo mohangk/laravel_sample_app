@@ -9,8 +9,7 @@ class RegistrationsController extends BaseController {
   public function store() {
     $user = new User($this->registrationParams());
 
-    if($user->valid()) {
-      $user->save();
+    if($user->save()) {
       Auth::login($user);
       return Redirect::to('/');
     } else {
