@@ -11,9 +11,13 @@ $kernel->init([
 
 $app = require_once __DIR__.'/../bootstrap/start.php';
 
-// seed the production database because that's what acceptance tests run in
+
+// calling:
 Artisan::call('migrate:refresh'); 
 Artisan::call('db:seed'); 
+// actually runs against the PRODUCTION database... BOOOoo! 
+// unfortunately, acceptance tests run against that database
+// so that's what we'll seed for now
 
-// i would like to run 
+// I would like to run 
 // Artisan::call("testing:dump") and use the Db module.

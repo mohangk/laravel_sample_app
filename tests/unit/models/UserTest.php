@@ -38,9 +38,9 @@ class UserTest extends \Codeception\TestCase\Test {
       $this->assertFalse($user->save());
     }
 
-    public function testMocking() {
+    public function testAspectMock() {
       test::double('User', ['getAuthPassword' => '1234']);
-      $user = new User;
+      $user = new User();
       $this->assertEquals('1234', $user->getAuthPassword());
     }
 

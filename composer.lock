@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "c3e10303b320e8140140b045a3841cb4",
+    "hash": "1716a1dcd2ed51845f1e5160535fa3d4",
     "packages": [
         {
             "name": "bitgandtter/google-api",
@@ -128,7 +128,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
+                    "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/"
                 },
@@ -146,7 +146,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -198,7 +198,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
+                    "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/"
                 },
@@ -768,16 +768,16 @@
         },
         {
             "name": "patchwork/utf8",
-            "version": "v1.1.10",
+            "version": "v1.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nicolas-grekas/Patchwork-UTF8.git",
-                "reference": "v1.1.10"
+                "reference": "v1.1.11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/v1.1.10",
-                "reference": "v1.1.10",
+                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/v1.1.11",
+                "reference": "v1.1.11",
                 "shasum": ""
             },
             "require": {
@@ -809,7 +809,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2013-08-13 16:36:44"
+            "time": "2013-08-19 09:37:02"
         },
         {
             "name": "predis/predis",
@@ -1779,12 +1779,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Mink.git",
-                "reference": "93cda551e454cce0867d3578e8a556549c086b19"
+                "reference": "6983f2a4ed9439803f8df57e1486995e2a8129a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Mink/zipball/93cda551e454cce0867d3578e8a556549c086b19",
-                "reference": "93cda551e454cce0867d3578e8a556549c086b19",
+                "url": "https://api.github.com/repos/Behat/Mink/zipball/6983f2a4ed9439803f8df57e1486995e2a8129a2",
+                "reference": "6983f2a4ed9439803f8df57e1486995e2a8129a2",
                 "shasum": ""
             },
             "require": {
@@ -1826,7 +1826,7 @@
                 "testing",
                 "web"
             ],
-            "time": "2013-08-12 10:13:56"
+            "time": "2013-08-19 07:31:35"
         },
         {
             "name": "behat/mink-browserkit-driver",
@@ -1940,12 +1940,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSeleniumDriver.git",
-                "reference": "v1.1.0"
+                "reference": "13a7d1c4d47cd03da9027e2d73a9efbd32aa5d6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/v1.1.0",
-                "reference": "v1.1.0",
+                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/13a7d1c4d47cd03da9027e2d73a9efbd32aa5d6f",
+                "reference": "13a7d1c4d47cd03da9027e2d73a9efbd32aa5d6f",
                 "shasum": ""
             },
             "require": {
@@ -1985,7 +1985,7 @@
                 "selenium",
                 "testing"
             ],
-            "time": "2013-04-13 23:50:14"
+            "time": "2013-08-19 09:55:13"
         },
         {
             "name": "behat/mink-selenium2-driver",
@@ -1993,12 +1993,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSelenium2Driver.git",
-                "reference": "876eb9aa4170e9210cc4169276f7c0f0802d3cfc"
+                "reference": "7cde4c7e3289484b42a977c512590bb73810a64a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/876eb9aa4170e9210cc4169276f7c0f0802d3cfc",
-                "reference": "876eb9aa4170e9210cc4169276f7c0f0802d3cfc",
+                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/7cde4c7e3289484b42a977c512590bb73810a64a",
+                "reference": "7cde4c7e3289484b42a977c512590bb73810a64a",
                 "shasum": ""
             },
             "require": {
@@ -2043,7 +2043,7 @@
                 "testing",
                 "webdriver"
             ],
-            "time": "2013-08-12 10:11:48"
+            "time": "2013-08-19 15:39:47"
         },
         {
             "name": "behat/mink-zombie-driver",
@@ -2211,12 +2211,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/d11wtq/boris.git",
-                "reference": "v1.0.2"
+                "reference": "v1.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/d11wtq/boris/zipball/v1.0.2",
-                "reference": "v1.0.2",
+                "url": "https://api.github.com/repos/d11wtq/boris/zipball/v1.0.3",
+                "reference": "v1.0.3",
                 "shasum": ""
             },
             "require": {
@@ -2235,7 +2235,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2013-06-26 14:14:53"
+            "time": "2013-08-19 10:52:14"
         },
         {
             "name": "davejamesmiller/laravel-boris",
@@ -2744,6 +2744,60 @@
                 "php"
             ],
             "time": "2013-08-18 16:55:02"
+        },
+        {
+            "name": "mockery/mockery",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/padraic/mockery.git",
+                "reference": "7dbfcdd266797d67ff9c17e8aa44f2adb48662ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/7dbfcdd266797d67ff9c17e8aa44f2adb48662ca",
+                "reference": "7dbfcdd266797d67ff9c17e8aa44f2adb48662ca",
+                "shasum": ""
+            },
+            "require": {
+                "lib-pcre": ">=7.0",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "hamcrest/hamcrest": "1.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mockery": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Pádraic Brady",
+                    "email": "padraic.brady@gmail.com",
+                    "homepage": "http://blog.astrumfutura.com"
+                }
+            ],
+            "description": "Mockery is a simple yet flexible PHP mock object framework for use in unit testing with PHPUnit, PHPSpec or any other testing framework. Its core goal is to offer a test double framework with a succint API capable of clearly defining all possible object operations and interactions using a human readable Domain Specific Language (DSL). Designed as a drop in alternative to PHPUnit's phpunit-mock-objects library, Mockery is easy to integrate with PHPUnit and can operate alongside phpunit-mock-objects without the World ending.",
+            "homepage": "http://github.com/padraic/mockery",
+            "keywords": [
+                "BDD",
+                "TDD",
+                "library",
+                "mock",
+                "mock objects",
+                "mockery",
+                "stub",
+                "test",
+                "test double",
+                "testing"
+            ],
+            "time": "2013-08-19 15:22:48"
         },
         {
             "name": "mustache/mustache",
@@ -3352,9 +3406,10 @@
     "stability-flags": {
         "jasonlewis/basset": 20,
         "thujohn/analytics": 20,
+        "way/generators": 20,
         "davejamesmiller/laravel-boris": 20,
         "lisachenko/go-aop-php": 20,
-        "way/generators": 20,
+        "mockery/mockery": 20,
         "codeception/codeception": 20,
         "codeception/aspect-mock": 20
     },
