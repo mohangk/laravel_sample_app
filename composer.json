@@ -5,22 +5,20 @@
   "repositories": [{
     "type": "vcs",
     "url": "https://github.com/sillylogger/Codeception"
-  },{
-    "type": "vcs",
-    "url": "https://github.com/zvirusz/AspectMock"
   }],
   "require": {
     "laravel/framework": "4.0.*",
     "jasonlewis/basset": "dev-master",
-    "hybridauth/hybridauth": "*"
+    "hybridauth/hybridauth": "*",
+    "thujohn/analytics": "dev-master"
   },
 
   "require-dev": {
     "davejamesmiller/laravel-boris": "dev-master",
-    "lisachenko/go-aop-php": "dev-master#98641c8",
+    "lisachenko/go-aop-php": "dev-master",
     "way/generators": "dev-master",
     "codeception/codeception": "dev-rollback_transactions",
-    "codeception/aspect-mock": "dev-patch-1"
+    "codeception/aspect-mock": "dev-master"
   },
 
   "autoload": {

@@ -3,8 +3,50 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "5226e806df6680e13a8dda50f94d22e3",
+    "hash": "c3e10303b320e8140140b045a3841cb4",
     "packages": [
+        {
+            "name": "bitgandtter/google-api",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bitgandtter/google-api.git",
+                "reference": "0.6.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bitgandtter/google-api/zipball/0.6.4",
+                "reference": "0.6.4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Yasmany Cubela Medina",
+                    "email": "yasmanycm@gmail.com"
+                }
+            ],
+            "description": "Google API library for PHP",
+            "keywords": [
+                "api",
+                "google"
+            ],
+            "time": "2013-07-26 14:28:46"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "1.0.1",
@@ -86,7 +128,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/"
                 },
@@ -104,7 +146,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes M. Schmitt",
+                    "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -156,7 +198,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/"
                 },
@@ -1599,6 +1641,49 @@
             "description": "Symfony Translation Component",
             "homepage": "http://symfony.com",
             "time": "2013-08-02 20:53:38"
+        },
+        {
+            "name": "thujohn/analytics",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thujohn/analytics-l4.git",
+                "reference": "43b9dee1af8d682d0df4a23d8e06f44a91736b7d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thujohn/analytics-l4/zipball/43b9dee1af8d682d0df4a23d8e06f44a91736b7d",
+                "reference": "43b9dee1af8d682d0df4a23d8e06f44a91736b7d",
+                "shasum": ""
+            },
+            "require": {
+                "bitgandtter/google-api": "dev-master",
+                "illuminate/support": "4.0.x",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Thujohn\\Analytics": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "thujohn",
+                    "email": "jonathan.thuau@gmail.com"
+                }
+            ],
+            "description": "Google Analytics for Laravel 4",
+            "keywords": [
+                "analytics",
+                "laravel",
+                "laravel4"
+            ],
+            "time": "2013-08-02 17:41:48"
         }
     ],
     "packages-dev": [
@@ -2020,16 +2105,16 @@
         },
         {
             "name": "codeception/aspect-mock",
-            "version": "dev-patch-1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/zvirusz/AspectMock.git",
-                "reference": "8a34f21791bb5f6286c90cc7b74bf22201947856"
+                "url": "https://github.com/Codeception/AspectMock.git",
+                "reference": "c964732300a3c5b3c6a5bba9251cae561961367b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zvirusz/AspectMock/zipball/8a34f21791bb5f6286c90cc7b74bf22201947856",
-                "reference": "8a34f21791bb5f6286c90cc7b74bf22201947856",
+                "url": "https://api.github.com/repos/Codeception/AspectMock/zipball/c964732300a3c5b3c6a5bba9251cae561961367b",
+                "reference": "c964732300a3c5b3c6a5bba9251cae561961367b",
                 "shasum": ""
             },
             "require": {
@@ -2046,17 +2131,16 @@
                     "AspectMock": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "authors": [
                 {
                     "name": "Michael Bodnarchuk",
-                    "email": "davert.php@mailican.com"
+                    "email": "davert.php@mailican.com",
+                    "homepage": "http://codeception.com"
                 }
             ],
             "description": "Experimental Mocking Framework powered by Aspects",
-            "support": {
-                "source": "https://github.com/zvirusz/AspectMock/tree/patch-1"
-            },
-            "time": "2013-08-13 02:58:39"
+            "time": "2013-08-18 13:23:29"
         },
         {
             "name": "codeception/codeception",
@@ -2612,12 +2696,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/lisachenko/go-aop-php.git",
-                "reference": "98641c8"
+                "reference": "a58e0c2ef106d1e0e6a5779adb2bd02fb917f4d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lisachenko/go-aop-php/zipball/d4208f2af0f7601a1c1dfe19e3b860f8e91c8cd0",
-                "reference": "98641c8",
+                "url": "https://api.github.com/repos/lisachenko/go-aop-php/zipball/a58e0c2ef106d1e0e6a5779adb2bd02fb917f4d5",
+                "reference": "a58e0c2ef106d1e0e6a5779adb2bd02fb917f4d5",
                 "shasum": ""
             },
             "require": {
@@ -2659,7 +2743,7 @@
                 "library",
                 "php"
             ],
-            "time": "2013-08-18 09:43:35"
+            "time": "2013-08-18 16:55:02"
         },
         {
             "name": "mustache/mustache",
@@ -3267,6 +3351,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "jasonlewis/basset": 20,
+        "thujohn/analytics": 20,
         "davejamesmiller/laravel-boris": 20,
         "lisachenko/go-aop-php": 20,
         "way/generators": 20,

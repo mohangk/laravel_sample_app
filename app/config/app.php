@@ -117,6 +117,8 @@ return array(
     'Basset\BassetServiceProvider',
 
     'DaveJamesMiller\Boris\BorisServiceProvider',
+
+    'Thujohn\Analytics\AnalyticsServiceProvider',
 	),
 
 	/*
@@ -183,7 +185,9 @@ return array(
     'View'            => 'Illuminate\Support\Facades\View',
 
     'Basset'          => 'Basset\Facade',
- 
+
+    'Analytics'       => 'Thujohn\Analytics\AnalyticsFacade',
+
 	),
 
 );
