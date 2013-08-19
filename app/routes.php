@@ -10,26 +10,20 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::resource('sign-in', 'SessionsController',
+                ['only' => ['index', 'store', 'destroy']]);
 
-Route::get(   'sign-in',                  [ 'uses' => 'SessionsController@create',
-                                            'as' => 'sign-in' ]             );
+Route::get(   'sign-out', 'SessionsController@destroy'      );
 
 Route::get(   'sign-in/hybrid/{action?}', [ 'uses' => 'Sessions\HybridController@create',
                                             'as' => 'hybridauth' ]);
 
-Route::get(   'sign-up', 'RegistrationsController@create'  );
+Route::resource('sign-up', 'RegistrationsController',
+                ['only' => ['index', 'store']]);
 
-Route::group(['before' => 'csrf'], function() {
-  Route::post(  'sign-in',  'SessionsController@store'       );
-  Route::post(  'sign-up',  'RegistrationsController@store'   );
-});
-
-Route::get(   'sign-out', 'SessionsController@destroy'      );
-
-
-Route::get('/', ['before' => 'auth',
-                 'uses' => 'HomeController@index']);
+Route::get('/', [ 'uses' => 'HomeController@index',
+                  'as' => 'root']);
 
 Route::any('{all}', function($uri){
-  return Redirect::to('sign-in');
+  return Redirect::route('sign-in.index');
 })->where('all', '.*');

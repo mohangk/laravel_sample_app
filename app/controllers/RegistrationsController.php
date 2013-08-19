@@ -2,8 +2,8 @@
 
 class RegistrationsController extends BaseController {
 
-  public function create() {
-    return View::make('registrations/create');
+  public function index() {
+    return View::make('registrations/index');
   }
 
   public function store() {
@@ -11,9 +11,9 @@ class RegistrationsController extends BaseController {
 
     if($user->save()) {
       Auth::login($user);
-      return Redirect::to('/');
+      return Redirect::route('root');
     } else {
-      return Redirect::to('sign-up')
+      return Redirect::route('sign-up.index')
         ->withInput()
         ->withErrors($user->errors)
         ->with('message', 'There were validation errors.');

@@ -2,15 +2,15 @@
 
 class SessionsController extends BaseController {
 
-  public function create() {
-    return View::make('sessions/create');
+  public function index() {
+    return View::make('sessions/index');
   }
 
   public function store() {
     if(Auth::attempt($this->sessionParams())) {
-      return Redirect::to('/');
+      return Redirect::route('root');
     } else {
-      return Redirect::to('sign-in')
+      return Redirect::route('sign-in.index')
         ->withInput()
         ->with('message', 'There was a problem with your email or password.');
     }
@@ -18,7 +18,7 @@ class SessionsController extends BaseController {
 
   public function destroy() {
     Auth::logout();
-    return Redirect::to('sign-in');
+    return Redirect::route('sign-in.index');
   }
 
   private function sessionParams() {

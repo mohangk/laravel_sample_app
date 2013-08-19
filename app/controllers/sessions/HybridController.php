@@ -39,9 +39,9 @@ class HybridController extends \BaseController {
 
 
       \Auth::login($user);
-      return \Redirect::to('/');
+      return \Redirect::route('root');
     } else {
-      return \Redirect::to('sign-in')
+      return \Redirect::route('sign-in.index')
         ->with('message', "We couldn't find a user with the email '$email'");
     }
   }

@@ -32,7 +32,7 @@ App::after(function($request, $response) {
 */
 
 Route::filter('auth', function() {
-	if (Auth::guest()) return Redirect::to('sign-in');
+	if (Auth::guest()) return Redirect::root('sign-in.index');
 });
 
 
@@ -52,7 +52,7 @@ Route::filter('auth.basic', function() {
 */
 
 Route::filter('guest', function() {
-	if (Auth::check()) return Redirect::to('/');
+	if (Auth::check()) return Redirect::route('root');
 });
 
 /*
