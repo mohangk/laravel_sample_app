@@ -14,6 +14,9 @@
 Route::get(   'sign-in',                  [ 'uses' => 'SessionsController@create',
                                             'as' => 'sign-in' ]             );
 
+Route::get(   'sign-in/hybrid/{action?}', [ 'uses' => 'Sessions\HybridController@create',
+                                            'as' => 'hybridauth' ]);
+
 Route::get(   'sign-up', 'RegistrationsController@create'  );
 
 Route::group(['before' => 'csrf'], function() {

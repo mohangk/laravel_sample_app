@@ -4,10 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateUsersTable extends Migration {
 
-  public function up()
-  {
-    Schema::create('users', function($table)
-    {
+  public function up() {
+    Schema::create('users', function($table) {
       $table->increments('id');
       $table->string('email')->unique();
       $table->string('password');
@@ -16,8 +14,7 @@ class CreateUsersTable extends Migration {
     });
   }
 
-  public function down()
-  {
+  public function down() {
     Schema::drop('users');
   }
 

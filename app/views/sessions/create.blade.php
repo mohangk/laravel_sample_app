@@ -24,7 +24,10 @@
     </hr>
 
     <footer>
-      Sign in with "some other auth service".
+      Or, sign in with Google
+      <a href="{{ URL::route('hybridauth') }}" title="Sign in with Google">
+        <img src="{{ asset('/assets/images/icon-google.png') }}" alt="google icon" title="google" />
+      </a>
     </footer>
   {{ Form::close() }}
 

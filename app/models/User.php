@@ -11,7 +11,8 @@ class User extends Eloquent implements UserInterface {
     'email' => 'required|unique:users|email'
   ];
 
-  protected $fillable = array('name', 'email', 'password');
+  protected $fillable = array('name', 'email', 'password',
+                              'google_access_token', 'google_access_token_expires_at', 'google_photoURL');
 
   public function getAuthPassword() {
 		return $this->password;

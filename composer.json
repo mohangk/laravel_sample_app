@@ -8,16 +8,17 @@
   },{
     "type": "vcs",
     "url": "https://github.com/zvirusz/AspectMock"
-  }],  
+  }],
   "require": {
     "laravel/framework": "4.0.*",
     "jasonlewis/basset": "dev-master",
-    "davejamesmiller/laravel-boris": "dev-master",
-    "lisachenko/go-aop-php": "dev-master#98641c8",
-    "way/generators": "dev-master"
+    "hybridauth/hybridauth": "*"
   },
 
   "require-dev": {
+    "davejamesmiller/laravel-boris": "dev-master",
+    "lisachenko/go-aop-php": "dev-master#98641c8",
+    "way/generators": "dev-master",
     "codeception/codeception": "dev-rollback_transactions",
     "codeception/aspect-mock": "dev-patch-1"
   },
