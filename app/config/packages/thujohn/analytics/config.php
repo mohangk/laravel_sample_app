@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'client_id'        => 'xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com',
+	'client_id'        => '948883279803.apps.googleusercontent.com',
 
 
 	/*
@@ -40,7 +40,7 @@ return array(
 	| xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@developer.gserviceaccount.com
 	|
 	*/
-	'service_email'    => 'xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@developer.gserviceaccount.com',
+	'service_email'    => '948883279803@developer.gserviceaccount.com',
 
 
 	/*
@@ -56,7 +56,7 @@ return array(
 	|
 	*/
 
-	'certificate_path' => __DIR__ . '/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-privatekey.p12',
+	'certificate_path' => __DIR__ . '/privatekey.p12',
 
 
 	/*

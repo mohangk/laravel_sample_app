@@ -47,8 +47,3 @@ tests/_log
 
 vendor/
 scripts/selenium-server-standalone*
-
-# Package configurations #
-##########################
-app/config/packages/thujohn/analytics/config.php
-app/config/packages/thujohn/analytics/privatekey.p12

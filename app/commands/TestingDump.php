@@ -6,34 +6,10 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class TestingDump extends Command {
 
-	/**
-	 * The console command name.
-	 *
-	 * @var string
-	 */
 	protected $name = 'testing:dump';
 
-	/**
-	 * The console command description.
-	 *
-	 * @var string
-	 */
 	protected $description = 'Create a dump.sql with seed data for testing.';
 
-	/**
-	 * Create a new command instance.
-	 *
-	 * @return void
-	 */
-	public function __construct() {
-		parent::__construct();
-	}
-
-	/**
-	 * Execute the console command.
-	 *
-	 * @return void
-	 */
   public function fire() {
     echo("testing:dump is running as ".App::environment());
 
@@ -49,24 +25,6 @@ class TestingDump extends Command {
     shell_exec('rm tests/_data/dump.sql');
     shell_exec('pg_dump laravel_sample_app_test > tests/_data/dump.sql');
     $this->comment("complete");
-	}
-
-	/**
-	 * Get the console command arguments.
-	 *
-	 * @return array
-	 */
-	protected function getArguments() {
-		return array();
-	}
-
-	/**
-	 * Get the console command options.
-	 *
-	 * @return array
-	 */
-	protected function getOptions() {
-		return array();
 	}
 
 }
