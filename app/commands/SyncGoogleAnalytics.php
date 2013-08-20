@@ -14,13 +14,17 @@ class SyncGoogleAnalytics extends Command {
     $this->info("$this->name is running as ".App::environment());
     $this->info("Syncing data for the past {$this->argument('syncDays')} days");
 
+    // We will need to relook at how we are calculating unique visitiors
+    // http://analytics.blogspot.sg/2011/02/mastering-unique-visitors-in-api.html
+    // https://support.google.com/analytics/answer/2992042?hl=en
+
     foreach(Analytics::getAllSitesIds() as $url => $siteId)
     {
         $result = Analytics::query(
           $siteId,
           date('Y-m-d', strtotime("-{$this->argument('syncDays')} day")),
           date('Y-m-d'),
-          'ga:visits,ga:uniquePageviews',
+          Metric::PAGEVIEWS.','.Metric::UNIQUE_VISITORS,
           array('dimensions' => 'ga:date')
         );
 
@@ -40,17 +44,16 @@ class SyncGoogleAnalytics extends Command {
 
           $m = Metric::findOrInitializeBy([
             'date'=>$date,
-            'type'=>'ga:visits',
+            'type'=> Metric::UNIQUE_VISITORS,
             'site_id'=>$siteId]);
-
-          $m->count = $data['ga:visits'];
+          $m->count = $data[Metric::UNIQUE_VISITORS];
           $m->save();
 
           $m = Metric::findOrInitializeBy([
             'date'=>$date,
-            'type'=>'ga:uniquePageViews',
+            'type'=>Metric::PAGEVIEWS,
             'site_id'=>$siteId]);
-          $m->count = $data['ga:uniquePageviews'];
+          $m->count = $data[Metric::PAGEVIEWS];
           $m->save();
 
         }

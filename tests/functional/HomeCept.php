@@ -7,3 +7,5 @@ $I->amOnPage('/');
 $I->seeCurrentUrlEquals('/');
 $I->see('Users:', 'h1');
 $I->see('Mohan Krishnan', 'tbody tr td');
+$I->see('Unique visitors:');
+$I->see('Pageviews:');

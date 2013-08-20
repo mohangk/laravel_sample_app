@@ -28,5 +28,49 @@
       @endforeach
     </tbody>
   </table>
+  </br>
 
+  <h1>
+    Unique visitors:
+  </h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Count</th>
+      <tr>
+    </thead>
+    <tbody>
+      @foreach($uniqueVisitorsByDate as $uniqueVisitors)
+        <tr>
+          <td>{{ $uniqueVisitors->date->format("d/m/y") }}</td>
+          <td>{{ $uniqueVisitors->count }}</td>
+        </tr>
+      @endforeach
+    </tbody>
+  </table>
+
+  </br>
+
+  <h1>
+   Pageviews:
+  </h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Count</th>
+      <tr>
+    </thead>
+    <tbody>
+      @foreach($pageviewsByDate as $uniqueVisitors)
+        <tr>
+          <td>{{ $uniqueVisitors->date->format("d/m/y") }}</td>
+          <td>{{ $uniqueVisitors->count }}</td>
+        </tr>
+      @endforeach
+    </tbody>
+  </table>
 @stop

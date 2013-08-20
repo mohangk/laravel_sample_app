@@ -30,13 +30,6 @@ class MetricTest extends \Codeception\TestCase\Test {
                           $this->metric->errors()->first('date'));
     });
 
-    $this->specify("date must be a well formatted", function() {
-      $this->metric->date = 'foobar';
-      $this->assertFalse($this->metric->isValid());
-      $this->assertRegExp('/not a valid/',
-                          $this->metric->errors()->first('date'));
-    });
-
     $this->specify("type is required", function() {
       $this->metric->type = null;
       $this->assertFalse($this->metric->isValid());
@@ -68,7 +61,7 @@ class MetricTest extends \Codeception\TestCase\Test {
     $this->specify("it initializes a metric when one isn't found", function() {
       $metric = Metric::findOrInitializeBy(['date' => $this->date, 'type' => $this->type]);
       $this->assertNotNull($metric);
-      $this->assertEquals($metric->date, $this->date);
+      $this->assertEquals($metric->date->toDateString(), $this->date);
       $this->assertEquals($metric->type, $this->type);
     });
 
