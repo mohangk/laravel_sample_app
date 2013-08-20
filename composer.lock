@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8450626578d75a8e55bdb9152b1cb5cb",
+    "hash": "fa6c6597d8fb3e76ed9d27fd296049d1",
     "packages": [
         {
             "name": "bitgandtter/google-api",
@@ -2104,45 +2104,6 @@
             "time": "2013-07-09 09:36:06"
         },
         {
-            "name": "codeception/aspect-mock",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Codeception/AspectMock.git",
-                "reference": "c964732300a3c5b3c6a5bba9251cae561961367b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/AspectMock/zipball/c964732300a3c5b3c6a5bba9251cae561961367b",
-                "reference": "c964732300a3c5b3c6a5bba9251cae561961367b",
-                "shasum": ""
-            },
-            "require": {
-                "lisachenko/go-aop-php": "~0.4"
-            },
-            "require-dev": {
-                "codeception/codeception": "@stable",
-                "codeception/specify": "@dev",
-                "codeception/verify": "@dev"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "AspectMock": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Michael Bodnarchuk",
-                    "email": "davert.php@mailican.com",
-                    "homepage": "http://codeception.com"
-                }
-            ],
-            "description": "Experimental Mocking Framework powered by Aspects",
-            "time": "2013-08-18 13:23:29"
-        },
-        {
             "name": "codeception/codeception",
             "version": "dev-rollback_transactions",
             "source": {
@@ -2733,12 +2694,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/lisachenko/go-aop-php.git",
-                "reference": "a58e0c2ef106d1e0e6a5779adb2bd02fb917f4d5"
+                "reference": "0ab1bd552ffd04b6308ec7e9cba111dafa581660"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lisachenko/go-aop-php/zipball/a58e0c2ef106d1e0e6a5779adb2bd02fb917f4d5",
-                "reference": "a58e0c2ef106d1e0e6a5779adb2bd02fb917f4d5",
+                "url": "https://api.github.com/repos/lisachenko/go-aop-php/zipball/0ab1bd552ffd04b6308ec7e9cba111dafa581660",
+                "reference": "0ab1bd552ffd04b6308ec7e9cba111dafa581660",
                 "shasum": ""
             },
             "require": {
@@ -2780,7 +2741,7 @@
                 "library",
                 "php"
             ],
-            "time": "2013-08-18 16:55:02"
+            "time": "2013-08-20 03:31:12"
         },
         {
             "name": "mockery/mockery",
@@ -3447,8 +3408,7 @@
         "davejamesmiller/laravel-boris": 20,
         "lisachenko/go-aop-php": 20,
         "mockery/mockery": 20,
-        "codeception/codeception": 20,
-        "codeception/aspect-mock": 20
+        "codeception/codeception": 20
     },
     "platform": [
 

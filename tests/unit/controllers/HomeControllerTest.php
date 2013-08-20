@@ -2,27 +2,25 @@
 
 class HomeControllerTest extends ControllerTest {
 
+  public function tearDown() {
+    Mockery::close();
+  }
+
   public function testShowWelcomeHasUsers() {
-    $user = new User(['name' => 'John Doe',
-                      'email' => 'user@example.com',
-                      'password' => 'password']);
-    $user->save();
+    $user = new User(['name' => 'Sean Carter',
+                      'email' => 'jay-z@example.com',
+                      'password' => 'password',
+                      'created_at' => new DateTime(),
+                      'updated_at' => new DateTime()]);
 
-    $this->mock = Mockery::mock('Eloquent', 'User');
-    $this->mock
-         ->shouldReceive('all')
-         ->once()
-         ->andReturn([$user]);
-
-    $this->app->instance('User', $this->mock);
+    $mock = Mockery::mock('User', ['all' => [$user]]);
+    App::instance('User', $mock);
 
     $response = $this->get('/');
     $this->assertResponseOk();
     $this->assertViewHas('users');
-    $this->assertContains('John Doe',
+    $this->assertContains('Sean Carter',
                           $response->getContent());
-
-    Mockery::close();
   }
 
 }

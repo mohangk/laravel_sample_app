@@ -19,7 +19,6 @@
     "lisachenko/go-aop-php": "dev-master",
     "mockery/mockery": "dev-master", 
     "codeception/codeception": "dev-rollback_transactions",
-    "codeception/aspect-mock": "dev-master",
     "codeception/specify": "*"
   },
 
