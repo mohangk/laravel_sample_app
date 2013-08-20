@@ -1,8 +1,8 @@
 <?php
 
-use AspectMock\Test as test;
-
 class MetricTest extends \Codeception\TestCase\Test {
+
+  use Codeception\Specify;
 
   protected $metric;
 
@@ -13,48 +13,74 @@ class MetricTest extends \Codeception\TestCase\Test {
                                 'count' => 3]);
   }
 
-  protected function _after() {
-    test::clean();
-  }
-
-  public function testRequiresDate() {
+  public function testValidations() {
     $this->assertTrue($this->metric->isValid());
-    $this->metric->date = 'foobar';
-    $this->assertFalse($this->metric->isValid());
+
+    $this->specify("site_id is required", function() {
+      $this->metric->site_id = null;
+      $this->assertFalse($this->metric->isValid());
+      $this->assertRegExp('/required/',
+                          $this->metric->errors()->first('site_id'));
+    });
+
+    $this->specify("date is required", function() {
+      $this->metric->date = null;
+      $this->assertFalse($this->metric->isValid());
+      $this->assertRegExp('/required/',
+                          $this->metric->errors()->first('date'));
+    });
+
+    $this->specify("date must be a well formatted", function() {
+      $this->metric->date = 'foobar';
+      $this->assertFalse($this->metric->isValid());
+      $this->assertRegExp('/not a valid/',
+                          $this->metric->errors()->first('date'));
+    });
+
+    $this->specify("type is required", function() {
+      $this->metric->type = null;
+      $this->assertFalse($this->metric->isValid());
+      $this->assertRegExp('/required/',
+                          $this->metric->errors()->first('type'));
+    });
+
+    $this->specify("count is required", function() {
+      $this->metric->count = null;
+      $this->assertFalse($this->metric->isValid());
+      $this->assertRegExp('/required/',
+                          $this->metric->errors()->first('count'));
+    });
+
+    $this->specify("count must be a valid integer", function() {
+      $this->metric->count = 'foobar';
+      $this->assertFalse($this->metric->isValid());
+      $this->assertRegExp('/must be an integer/',
+                          $this->metric->errors()->first('count'));
+    });
   }
 
-  public function testRequiresType() {
-    $this->assertTrue($this->metric->isValid());
-    $this->metric->type = null;
-    $this->assertFalse($this->metric->isValid());
-  }
+  public function testFindOrInitializeBy() {
+    $this->site_id = 'ga:123';
+    $this->date = '2013-08-08';
+    $this->type = 'foobar';
+    $this->count = 3;
 
-  public function testRequiresCount() {
-    $this->assertTrue($this->metric->isValid());
-    $this->metric->count = 'foobar';
-    $this->assertFalse($this->metric->isValid());
-  }
+    $this->specify("it initializes a metric when one isn't found", function() {
+      $metric = Metric::findOrInitializeBy(['date' => $this->date, 'type' => $this->type]);
+      $this->assertNotNull($metric);
+      $this->assertEquals($metric->date, $this->date);
+      $this->assertEquals($metric->type, $this->type);
+    });
 
-  public function testFindOrInitialize() {
-    // when something doesn't exist, it news one up
-    $site_id = 'ga:123';
-    $date = '2013-08-08';
-    $type = 'foobar';
-    $count = 3;
+    $this->specify("it retrieves the first metric when they are found", function() {
+      $existingMetric = new Metric(['site_id' => $this->site_id, 'date' => $this->date, 'type' => $this->type, 'count' => $this->count]);
+      $existingMetric->save();
 
-    $metric = Metric::findOrInitializeBy(['date' => $date, 'type' => $type]);
-    $this->assertNotNull($metric);
-    $this->assertEquals($metric->date, $date);
-    $this->assertEquals($metric->type, $type);
-
-    // when the metric already exists, it finds it
-    $existingMetric = new Metric(['site_id' => $site_id, 'date' => $date, 'type' => $type, 'count' => $count]);
-    $existingMetric->save();
-
-    $foundMetric = Metric::findOrInitializeBy(['site_id' => $site_id, 'date' => $date, 'type' => $type]);
-    $this->assertNotNull($foundMetric);
-    $this->assertEquals($foundMetric->id, $existingMetric->id);
-    $this->assertEquals($foundMetric->count, $existingMetric->count);
+      $foundMetric = Metric::findOrInitializeBy(['site_id' => $this->site_id, 'date' => $this->date, 'type' => $this->type]);
+      $this->assertNotNull($foundMetric);
+      $this->assertEquals($foundMetric->id, $existingMetric->id);
+      $this->assertEquals($foundMetric->count, $existingMetric->count);
+    });
   }
 
 

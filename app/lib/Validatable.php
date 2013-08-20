@@ -26,23 +26,14 @@ trait Validatable {
       }
     }
 
-    if (empty($rules)) {
-      $success = true;
-    } else {
-      $customMessages = static::$customMessages;
+    $customMessages = static::$customMessages;
 
-      $data = $this->getAttributes(); // the data under validation
+    $data = $this->getAttributes(); // the data under validation
 
-      // perform validation
-      $validator = Validator::make($data, $rules, $customMessages);
-      $success   = $validator->passes();
-
-      if ($success) {
-        $this->validationErrors = new MessageBag;
-      } else {
-        $this->validationErrors = $validator->messages();
-      }
-    }
+    // perform validation
+    $validator = Validator::make($data, $rules, $customMessages);
+    $success   = $validator->passes();
+    $this->validationErrors = $validator->messages();
 
     return $success;
   }

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "1716a1dcd2ed51845f1e5160535fa3d4",
+    "hash": "8450626578d75a8e55bdb9152b1cb5cb",
     "packages": [
         {
             "name": "bitgandtter/google-api",
@@ -1993,12 +1993,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSelenium2Driver.git",
-                "reference": "7cde4c7e3289484b42a977c512590bb73810a64a"
+                "reference": "f6156a785308491f93297108e6e47ebd75550550"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/7cde4c7e3289484b42a977c512590bb73810a64a",
-                "reference": "7cde4c7e3289484b42a977c512590bb73810a64a",
+                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/f6156a785308491f93297108e6e47ebd75550550",
+                "reference": "f6156a785308491f93297108e6e47ebd75550550",
                 "shasum": ""
             },
             "require": {
@@ -2043,7 +2043,7 @@
                 "testing",
                 "webdriver"
             ],
-            "time": "2013-08-19 15:39:47"
+            "time": "2013-08-19 17:43:35"
         },
         {
             "name": "behat/mink-zombie-driver",
@@ -2204,6 +2204,43 @@
                 "source": "https://github.com/sillylogger/Codeception/tree/rollback_transactions"
             },
             "time": "2013-08-17 14:29:38"
+        },
+        {
+            "name": "codeception/specify",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Codeception/Specify.git",
+                "reference": "b52541f2d8ca2fcb241ad2393a2cac04dad37d06"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Codeception/Specify/zipball/b52541f2d8ca2fcb241ad2393a2cac04dad37d06",
+                "reference": "b52541f2d8ca2fcb241ad2393a2cac04dad37d06",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Codeception\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Michael Bodnarchuk",
+                    "email": "davert.php@mailican.com",
+                    "homepage": "http://codeception.com"
+                }
+            ],
+            "description": "BDD code blocks for PHPUnit and Codeception",
+            "time": "2013-07-25 12:49:30"
         },
         {
             "name": "d11wtq/boris",

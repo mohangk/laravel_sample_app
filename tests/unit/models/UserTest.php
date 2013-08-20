@@ -1,47 +1,50 @@
 <?php
 
-use AspectMock\Test as test;
-
 class UserTest extends \Codeception\TestCase\Test {
 
-    protected $user;
+  use Codeception\Specify;
 
-    protected function _before() {
-      $this->user = new User(['name' => 'John Doe',
+  protected $user;
+
+  protected function _before() {
+    $this-> user = new User([ 'name' => 'John Doe',
                               'email' => 'user@example.com',
                               'password' => 'password']);
-    }
-  
-    protected function _after() {
-      test::clean();
-    }
+  }
 
-    public function testRequiresName() {
-      $this->assertTrue($this->user->isValid());
+  public function testValidations() {
+    $this->assertTrue($this->user->isValid());
+
+    $this->specify("name is required", function() {
       $this->user->name = null;
       $this->assertFalse($this->user->isValid());
-    }
+      $this->assertRegExp('/required/',
+                          $this->user->errors()->first('name'));
+    });  
 
-    public function testRequiresValidEmail() {
-      $this->assertTrue($this->user->isValid());
+    $this->specify("email is required", function() {
+      $this->user->email = null;
+      $this->assertFalse($this->user->isValid());
+      $this->assertRegExp('/required/',
+                          $this->user->errors()->first('email'));
+    });
+
+    $this->specify("email must be well formatted", function() {
       $this->user->email = 'foobar';
       $this->assertFalse($this->user->isValid());
-    }
+      $this->assertRegExp('/invalid/',
+                          $this->user->errors()->first('email'));
+    });
 
-    public function testRequiresUniqueEmail() {
+    $this->specify("email must be unique", function() {
       $this->user->save();
 
-      $user = new User(['name' => 'Not John Doe',
-                        'email' => 'user@example.com',
-                        'password' => 'password']);
-
+      $user = new User(array_only($this->user->getAttributes(), ['email', 'name', 'password']));
       $this->assertFalse($user->save());
-    }
 
-    public function testAspectMock() {
-      test::double('User', ['getAuthPassword' => '1234']);
-      $user = new User();
-      $this->assertEquals('1234', $user->getAuthPassword());
-    }
+      $this->assertRegExp('/been taken/',
+                          $user->errors()->first('email'));
+    });
+  }
 
 }
