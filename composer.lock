@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "fa6c6597d8fb3e76ed9d27fd296049d1",
+    "hash": "a844cab3ef3bff23b1b9b7bd153ee058",
     "packages": [
         {
             "name": "bitgandtter/google-api",
@@ -128,7 +128,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/"
                 },
@@ -146,7 +146,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes M. Schmitt",
+                    "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -198,7 +198,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/"
                 },
@@ -2689,6 +2689,52 @@
             "time": "2013-01-15 19:48:58"
         },
         {
+            "name": "juy/profiler",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/juy/profiler.git",
+                "reference": "v1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/juy/profiler/zipball/v1.0.0",
+                "reference": "v1.0.0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~4",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Juy\\Profiler": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sevdin Filiz",
+                    "email": "angelside@users.sourceforge.net",
+                    "homepage": "http://juysoft.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A profiler for Laravel 4.",
+            "homepage": "http://github.com/juy/profiler",
+            "keywords": [
+                "anbu",
+                "debug bar",
+                "laravel",
+                "profiler"
+            ],
+            "time": "2013-08-08 12:16:40"
+        },
+        {
             "name": "lisachenko/go-aop-php",
             "version": "dev-master",
             "source": {
@@ -3408,7 +3454,8 @@
         "davejamesmiller/laravel-boris": 20,
         "lisachenko/go-aop-php": 20,
         "mockery/mockery": 20,
-        "codeception/codeception": 20
+        "codeception/codeception": 20,
+        "juy/profiler": 20
     },
     "platform": [
 
