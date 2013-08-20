@@ -35,7 +35,13 @@ ClassLoader::addDirectories(array(
 
 $logFile = 'log-'.php_sapi_name().'.txt';
 
+Event::listen("illuminate.query", function($query, $bindings, $time, $name){
+    \Log::debug($query."\n");
+    \Log::debug(json_encode($bindings)."\n");
+});
+
 Log::useDailyFiles(storage_path().'/logs/'.$logFile);
+
 
 /*
 |--------------------------------------------------------------------------
