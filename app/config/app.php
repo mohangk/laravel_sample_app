@@ -119,6 +119,8 @@ return array(
     'DaveJamesMiller\Boris\BorisServiceProvider',
 
     'Thujohn\Analytics\AnalyticsServiceProvider',
+
+    'Juy\Profiler\Providers\ProfilerServiceProvider',
 	),
 
 	/*
@@ -188,6 +190,7 @@ return array(
 
     'Analytics'       => 'Thujohn\Analytics\AnalyticsFacade',
 
+    'Profiler'      => 'Juy\Profiler\Facades\Profiler',
 	),
 
 );
