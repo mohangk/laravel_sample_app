@@ -8,4 +8,9 @@ modules:
   enabled:
     - Laravel4
     - Dbh
+    - Db
     - CodeHelper
+  config:
+    Db:
+      cleanup: false #We use Dbh here
+      populate: true #because acceptance leaves Db mucked up

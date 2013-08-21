@@ -11,7 +11,7 @@ $I->click('Sign Up');
 // This isn't working properly because the Db module
 // isn't working for pgsql
 //
-// $I->seeInDatabase('users', ['email' => 'user@example.com' ]);
+$I->seeInDatabase('users', ['email' => 'user@example.com' ]);
 
 $I->seeCurrentUrlEquals('/');
 $I->see('Users:', 'h1');

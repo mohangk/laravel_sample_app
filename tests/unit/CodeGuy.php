@@ -7,6 +7,7 @@
 use \Codeception\Maybe;
 use Codeception\Module\Laravel4;
 use Codeception\Module\Dbh;
+use Codeception\Module\Db;
 use Codeception\Module\CodeHelper;
 
 /**
@@ -1932,7 +1933,7 @@ class CodeGuy extends \Codeception\AbstractGuy
      * @param $table
      * @param array $criteria
     * Conditional Assertion: Test won't be stopped on fail
-     * @see Codeception\Module\Dbh::seeInDatabase()
+     * @see Codeception\Module\Db::seeInDatabase()
      * @return \Codeception\Maybe
      */
     public function canSeeInDatabase($table, $criteria = null) {
@@ -1967,7 +1968,7 @@ class CodeGuy extends \Codeception\AbstractGuy
      *
      * @param $table
      * @param array $criteria
-     * @see Codeception\Module\Dbh::seeInDatabase()
+     * @see Codeception\Module\Db::seeInDatabase()
      * @return \Codeception\Maybe
      */
     public function seeInDatabase($table, $criteria = null) {
@@ -2007,7 +2008,7 @@ class CodeGuy extends \Codeception\AbstractGuy
      * @param $table
      * @param array $criteria
     * Conditional Assertion: Test won't be stopped on fail
-     * @see Codeception\Module\Dbh::dontSeeInDatabase()
+     * @see Codeception\Module\Db::dontSeeInDatabase()
      * @return \Codeception\Maybe
      */
     public function cantSeeInDatabase($table, $criteria = null) {
@@ -2044,7 +2045,7 @@ class CodeGuy extends \Codeception\AbstractGuy
      *
      * @param $table
      * @param array $criteria
-     * @see Codeception\Module\Dbh::dontSeeInDatabase()
+     * @see Codeception\Module\Db::dontSeeInDatabase()
      * @return \Codeception\Maybe
      */
     public function dontSeeInDatabase($table, $criteria = null) {
@@ -2078,11 +2079,40 @@ class CodeGuy extends \Codeception\AbstractGuy
      * @param $column
      * @param array $criteria
      * @return mixed
-     * @see Codeception\Module\Dbh::grabFromDatabase()
+     * @see Codeception\Module\Db::grabFromDatabase()
      * @return \Codeception\Maybe
      */
     public function grabFromDatabase($table, $column, $criteria = null) {
         $this->scenario->addStep(new \Codeception\Step\Action('grabFromDatabase', func_get_args()));
+        if ($this->scenario->running()) {
+            $result = $this->scenario->runStep();
+            return new Maybe($result);
+        }
+        return new Maybe();
+    }
+
+ 
+    /**
+     * This method is generated.
+     * Documentation taken from corresponding module.
+     * ----------------------------------------------
+     *
+     * Inserts SQL record into database. This record will be erased after the test.
+     *
+     * ``` php
+     * <?php
+     * $I->haveInDatabase('users', array('name' => 'miles', 'email' => 'miles@davis.com'));
+     * ?>
+     * ```
+     *
+     * @param $table
+     * @param array $data
+     * @return integer $id
+     * @see Codeception\Module\Db::haveInDatabase()
+     * @return \Codeception\Maybe
+     */
+    public function haveInDatabase($table, $data) {
+        $this->scenario->addStep(new \Codeception\Step\Action('haveInDatabase', func_get_args()));
         if ($this->scenario->running()) {
             $result = $this->scenario->runStep();
             return new Maybe($result);

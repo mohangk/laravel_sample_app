@@ -9,13 +9,11 @@
 class_name: TestGuy
 modules:
   enabled:
+    - Db
     - Laravel4
     - Filesystem
     - TestHelper
-  # config:
-    # Selenium2:
-    #     url: 'http://localhost:3444/'
-    #     host: '10.0.2.2'
-    #     browser: firefox
-    # PhpBrowser:
-    #     url: 'http://localhost:3444/'
+  config:
+    Db:
+      cleanup: true  #until we use Dbh here
+      populate: true #because acceptance leaves Db mucked up

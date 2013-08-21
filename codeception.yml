@@ -14,8 +14,9 @@ settings:
 modules:
   config:
     Db:
-      driver: 'pgsql'
       dsn: 'pgsql:host=localhost;dbname=laravel_sample_app_test'
       user: 'vagrant'
       password: ''
-      dump: tests/_data/dump.sql
+      dump: 'tests/_data/dump.sql'
+      cleanup: true
+      populate: false
