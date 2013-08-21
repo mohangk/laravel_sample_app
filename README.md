@@ -38,7 +38,7 @@
 
 ## Start the application:
 
-        php artisan serve --host <eth0 IP address if youre using vagrant>
+        php artisan server --host <eth0 IP address if youre using vagrant>
 
 ## Console:
 
@@ -76,7 +76,7 @@ You can specify a particular suite:
 
 2. On vagrant, run your app in the test environment on port 3444
 	
-		vagrant@vagrant-ubuntu-raring-64:/vagrant$ php artisan serve --host 10.0.2.15 --port 3444
+		vagrant@vagrant-ubuntu-raring-64:/vagrant$ php artisan server --host 10.0.2.15 --port 3444
 
 2. On vagrant, start the acceptance tests
 	

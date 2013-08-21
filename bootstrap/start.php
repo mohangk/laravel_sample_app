@@ -26,11 +26,15 @@ $app->redirectIfTrailingSlash();
 |
 */
 
-$env = $app->detectEnvironment(array(
+$env = $app->detectEnvironment(function() {
 
-	'local' => array('your-machine-name'),
+  if(strlen(getenv('LARAVEL_ENV')) > 0){
+    return getenv('LARAVEL_ENV');
+  } else {
+    return 'development';
+  }
 
-));
+});
 
 /*
 |--------------------------------------------------------------------------
