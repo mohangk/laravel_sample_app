@@ -9,7 +9,7 @@ trait Validatable {
    *
    * @var \Illuminate\Support\MessageBag
    */
-  public $validationErrors;
+  private $errors;
 
   /**
    * Validate the model instance
@@ -33,7 +33,7 @@ trait Validatable {
     // perform validation
     $validator = Validator::make($data, $rules, $customMessages);
     $success   = $validator->passes();
-    $this->validationErrors = $validator->messages();
+    $this->errors = $validator->errors();
 
     return $success;
   }
@@ -59,7 +59,7 @@ trait Validatable {
    * @return \Illuminate\Support\MessageBag
    */
   public function errors() {
-    return $this->validationErrors;
+    return $this->errors;
   }
 
 }

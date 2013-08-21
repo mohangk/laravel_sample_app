@@ -20,13 +20,13 @@ class HelperTest extends \Codeception\TestCase\Test {
       $this->assertEquals(Helper::actionName(), 'create');
     });
 
-    $this->specify("it returns returns create instead of store", function() {
+    $this->specify("when store, it returns create", function() {
       Route::shouldReceive('currentRouteAction')->once()
              ->andReturn('SessionsController@store');
       $this->assertEquals(Helper::actionName(), 'create');
     });
 
-    $this->specify("it returns returns edit instead of update", function() {
+    $this->specify("when update, it returns edit", function() {
       Route::shouldReceive('currentRouteAction')->once()
              ->andReturn('SessionsController@update');
       $this->assertEquals(Helper::actionName(), 'edit');

@@ -7,9 +7,9 @@ class UserTest extends \Codeception\TestCase\Test {
   protected $user;
 
   protected function _before() {
-    $this-> user = new User([ 'name' => 'John Doe',
-                              'email' => 'user@example.com',
-                              'password' => 'password']);
+    $this->user = new User(['name' => 'John Doe',
+                            'email' => 'user@example.com',
+                            'password' => 'password']);
   }
 
   public function testValidations() {

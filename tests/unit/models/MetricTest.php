@@ -58,14 +58,14 @@ class MetricTest extends \Codeception\TestCase\Test {
     $this->type = 'foobar';
     $this->count = 3;
 
-    $this->specify("it initializes a metric when one isn't found", function() {
+    $this->specify("when one isn't found, it initializes a metric ", function() {
       $metric = Metric::findOrInitializeBy(['date' => $this->date, 'type' => $this->type]);
       $this->assertNotNull($metric);
       $this->assertEquals($metric->date->toDateString(), $this->date);
       $this->assertEquals($metric->type, $this->type);
     });
 
-    $this->specify("it retrieves the first metric when they are found", function() {
+    $this->specify("when one is found, it retrieves the first metric", function() {
       $existingMetric = new Metric(['site_id' => $this->site_id, 'date' => $this->date, 'type' => $this->type, 'count' => $this->count]);
       $existingMetric->save();
 

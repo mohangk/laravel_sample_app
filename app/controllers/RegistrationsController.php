@@ -7,7 +7,8 @@ class RegistrationsController extends BaseController {
   }
 
   public function store() {
-    $user = new User($this->registrationParams());
+    $user = App::make('User');
+    $user->fill($this->registrationParams());
 
     if($user->save()) {
       Auth::login($user);
@@ -15,7 +16,7 @@ class RegistrationsController extends BaseController {
     } else {
       return Redirect::route('sign-up.index')
         ->withInput()
-        ->withErrors($user->errors)
+        ->withErrors($user->errors())
         ->with('message', 'There were validation errors.');
     }
 
@@ -23,7 +24,7 @@ class RegistrationsController extends BaseController {
 
   private function registrationParams() {
     $params = Input::only('name', 'email', 'password');
-    $params['password'] = Hash::make($params['password']);
+    if(trim($params['password']) != '') $params['password'] = Hash::make($params['password']);
     return $params;
   }
 
