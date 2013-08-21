@@ -4,7 +4,7 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class SyncGoogleAnalytics extends Command {
+class AnalyticsSync extends Command {
 
 	protected $name = 'analytics:sync';
 

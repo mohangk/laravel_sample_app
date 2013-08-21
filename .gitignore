@@ -41,6 +41,7 @@ public/builds
 chromedriver.log
 libpeerconnection.log
 tests/_log
+tests/_data/dump.sql
 
 # Dependencies #
 ################

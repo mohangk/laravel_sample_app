@@ -11,6 +11,6 @@
 |
 */
 
-$artisan->add(new TestingDump());
-$artisan->add(new SyncGoogleAnalytics());
 $artisan->add(new ServerCommand());
+$artisan->add(new AnalyticsSync());
+$artisan->add(new DbDump());
