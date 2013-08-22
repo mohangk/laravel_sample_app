@@ -15,4 +15,4 @@ $I->seeInDatabase('users', ['email' => 'user@example.com' ]);
 
 $I->seeCurrentUrlEquals('/');
 $I->see('Users:', 'h1');
-$I->see('John Doe', 'tbody tr td');
+$I->see('John Doe', 'tbody');

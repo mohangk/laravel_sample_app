@@ -6,6 +6,6 @@ $I->lookForwardTo('viewing the latest metrics');
 $I->amOnPage('/');
 $I->seeCurrentUrlEquals('/');
 $I->see('Users:', 'h1');
-$I->see('Mohan Krishnan', 'tbody tr td');
+$I->see('Mohan Krishnan', 'tbody');
 $I->see('Unique visitors:');
 $I->see('Pageviews:');
