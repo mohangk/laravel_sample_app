@@ -1,50 +1,51 @@
 <?php
+use Woodling\Woodling;
 
 class UserTest extends \Codeception\TestCase\Test {
 
   use Codeception\Specify;
 
-  protected $user;
+  public function testFactory() {
+    $user = Woodling::retrieve('User');
 
-  protected function _before() {
-    $this->user = new User(['name' => 'John Doe',
-                            'email' => 'user@example.com',
-                            'password' => 'password']);
+    $this->specify("should be valid", function() use($user) {
+      $this->assertTrue($user->isValid());
+    });
   }
 
   public function testValidations() {
-    $this->assertTrue($this->user->isValid());
 
     $this->specify("name is required", function() {
-      $this->user->name = null;
-      $this->assertFalse($this->user->isValid());
+      $user = Woodling::retrieve('User', ['name' => null]);
+      $this->assertFalse($user->isValid());
       $this->assertRegExp('/required/',
-                          $this->user->errors()->first('name'));
+                          $user->errors()->first('name'));
     });  
 
     $this->specify("email is required", function() {
-      $this->user->email = null;
-      $this->assertFalse($this->user->isValid());
+      $user = Woodling::retrieve('User', ['email' => null]);
+      $this->assertFalse($user->isValid());
       $this->assertRegExp('/required/',
-                          $this->user->errors()->first('email'));
+                          $user->errors()->first('email'));
     });
 
     $this->specify("email must be well formatted", function() {
-      $this->user->email = 'foobar';
-      $this->assertFalse($this->user->isValid());
+      $user = Woodling::retrieve('User', ['email' => 'foobar']);
+      $this->assertFalse($user->isValid());
       $this->assertRegExp('/invalid/',
-                          $this->user->errors()->first('email'));
+                          $user->errors()->first('email'));
     });
 
     $this->specify("email must be unique", function() {
-      $this->user->save();
+      $user = Woodling::saved('User');
 
-      $user = new User(array_only($this->user->getAttributes(), ['email', 'name', 'password']));
-      $this->assertFalse($user->save());
-
+      $duplicateUser = Woodling::retrieve('User', ['email' => $user->email]);
+      $this->assertFalse($duplicateUser->save());
       $this->assertRegExp('/been taken/',
-                          $user->errors()->first('email'));
+                          $duplicateUser->errors()->first('email'));
     });
+
   }
 
 }
+
