@@ -4,7 +4,7 @@
   "keywords": ["laravel", "sample", "app", "rails"],
   "repositories": [{
     "type": "vcs",
-    "url": "https://github.com/sillylogger/Codeception"
+    "url": "https://github.com/mohangk/Codeception"
   }],
   "require": {
     "laravel/framework": "4.0.*",
@@ -18,7 +18,7 @@
     "davejamesmiller/laravel-boris": "dev-master",
     "lisachenko/go-aop-php": "dev-master",
     "mockery/mockery": "dev-master", 
-    "codeception/codeception": "dev-rollback_transactions",
+    "codeception/codeception": "dev-all_pg_fixes",
     "codeception/specify": "*",
     "juy/profiler": "dev-master"
   },
