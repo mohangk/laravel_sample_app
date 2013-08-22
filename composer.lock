@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "60bbdd2c955b6473da99a8bceae819d2",
+    "hash": "3cb89139ba536368666bcc63f04329d7",
     "packages": [
         {
             "name": "bitgandtter/google-api",
@@ -1418,12 +1418,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "b77ad515a2bb8d81f029b8af23135e8fb151de9f"
+                "reference": "2e7f6b902532491cd3ee16de90932aa9f7b00123"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/b77ad515a2bb8d81f029b8af23135e8fb151de9f",
-                "reference": "b77ad515a2bb8d81f029b8af23135e8fb151de9f",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/2e7f6b902532491cd3ee16de90932aa9f7b00123",
+                "reference": "2e7f6b902532491cd3ee16de90932aa9f7b00123",
                 "shasum": ""
             },
             "require": {
@@ -1480,7 +1480,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2013-08-15 17:08:02"
+            "time": "2013-08-22 06:42:25"
         },
         {
             "name": "symfony/process",
@@ -1489,12 +1489,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "a49d145045efb086592c2df48490a14d6d9e9874"
+                "reference": "1e91553e1cedd0b8fb1da6ea4f89b02e21713d5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/a49d145045efb086592c2df48490a14d6d9e9874",
-                "reference": "a49d145045efb086592c2df48490a14d6d9e9874",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/1e91553e1cedd0b8fb1da6ea4f89b02e21713d5b",
+                "reference": "1e91553e1cedd0b8fb1da6ea4f89b02e21713d5b",
                 "shasum": ""
             },
             "require": {
@@ -1527,7 +1527,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2013-08-21 07:58:38"
+            "time": "2013-08-22 06:42:25"
         },
         {
             "name": "symfony/routing",
@@ -2376,6 +2376,52 @@
                 "sdk"
             ],
             "time": "2013-01-15 21:37:15"
+        },
+        {
+            "name": "fzaninotto/faker",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "feb6492762a77db946bc13cc44a20a01546be0e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/feb6492762a77db946bc13cc44a20a01546be0e6",
+                "reference": "feb6492762a77db946bc13cc44a20a01546be0e6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Faker": "src/",
+                    "Faker\\PHPUnit": "test/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2013-08-12 10:05:47"
         },
         {
             "name": "guzzle/common",
@@ -3265,6 +3311,56 @@
             "time": "2013-07-23 04:42:59"
         },
         {
+            "name": "summerstreet/woodling",
+            "version": "v0.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/summerstreet/woodling.git",
+                "reference": "v0.1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/summerstreet/woodling/zipball/v0.1.4",
+                "reference": "v0.1.4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "apigen/apigen": "2.8.*",
+                "mikey179/vfsstream": "v1.1.0",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Woodling": "src/"
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mindaugas Bujanauskas"
+                }
+            ],
+            "description": "Easy fixtures for your models",
+            "homepage": "https://github.com/summerstreet/woodling",
+            "keywords": [
+                "factories",
+                "fixtures",
+                "testing",
+                "woodling"
+            ],
+            "time": "2013-06-15 17:15:56"
+        },
+        {
             "name": "symfony/yaml",
             "version": "dev-master",
             "target-dir": "Symfony/Component/Yaml",
@@ -3359,23 +3455,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JeffreyWay/Laravel-4-Generators.git",
-                "reference": "93374afdc7412e02a28655d12d79869c58a3c677"
+                "reference": "644b656ff34e51320405225a14728a6a03da223c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JeffreyWay/Laravel-4-Generators/zipball/93374afdc7412e02a28655d12d79869c58a3c677",
-                "reference": "93374afdc7412e02a28655d12d79869c58a3c677",
+                "url": "https://api.github.com/repos/JeffreyWay/Laravel-4-Generators/zipball/644b656ff34e51320405225a14728a6a03da223c",
+                "reference": "644b656ff34e51320405225a14728a6a03da223c",
                 "shasum": ""
             },
             "require": {
-                "illuminate/console": "~4",
-                "illuminate/filesystem": "~4",
-                "illuminate/support": "~4",
                 "mustache/mustache": "dev-master",
                 "php": ">=5.3.0",
                 "way/laravel-test-helpers": "dev-master"
             },
             "require-dev": {
+                "illuminate/console": "~4",
+                "illuminate/filesystem": "~4",
+                "illuminate/support": "~4",
                 "mockery/mockery": "dev-master"
             },
             "type": "library",
@@ -3401,7 +3497,13 @@
                     "role": "Developer"
                 }
             ],
-            "time": "2013-08-22 04:20:56"
+            "description": "Laravel 4 Generators",
+            "keywords": [
+                "artisan",
+                "generators",
+                "laravel"
+            ],
+            "time": "2013-08-22 04:41:38"
         },
         {
             "name": "way/laravel-test-helpers",
@@ -3455,7 +3557,8 @@
         "lisachenko/go-aop-php": 20,
         "mockery/mockery": 20,
         "codeception/codeception": 20,
-        "juy/profiler": 20
+        "juy/profiler": 20,
+        "fzaninotto/faker": 20
     },
     "platform": [
 

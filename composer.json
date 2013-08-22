@@ -20,7 +20,9 @@
     "mockery/mockery": "dev-master", 
     "codeception/codeception": "dev-all_pg_fixes",
     "codeception/specify": "*",
-    "juy/profiler": "dev-master"
+    "juy/profiler": "dev-master",
+    "summerstreet/woodling": "0.1.*",
+    "fzaninotto/Faker": "dev-master"
   },
 
   "autoload": {
