@@ -1,29 +1,36 @@
 {
   "name": "mohangk/laravel_sample_app",
   "description": "A sample app built on the Laravel Framework.",
-  "keywords": ["laravel", "sample", "app", "rails"],
+  "keywords": [
+    "laravel",
+    "sample app",
+    "rails"
+  ],
   "repositories": [{
-    "type": "vcs",
-    "url": "https://github.com/mohangk/Codeception"
+      "type": "vcs",
+      "url": "https://github.com/mohangk/Codeception"
+    },{
+      "type": "vcs",
+      "url": "https://github.com/sillylogger/Laravel-4-Generators"
   }],
   "require": {
-    "laravel/framework": "4.0.*",
-    "jasonlewis/basset": "dev-master",
-    "hybridauth/hybridauth": "*",
-    "thujohn/analytics": "dev-master",
-    "rcrowe/twigbridge": "dev-master"
+    "laravel/framework":      "~4",
+    "jasonlewis/basset":      "dev-master",
+    "hybridauth/hybridauth":  "*",
+    "thujohn/analytics":      "dev-master",
+    "rcrowe/twigbridge":      "dev-master"
   },
 
   "require-dev": {
-    "way/generators": "dev-master",
-    "davejamesmiller/laravel-boris": "dev-master",
-    "lisachenko/go-aop-php": "dev-master",
-    "mockery/mockery": "dev-master", 
-    "codeception/codeception": "dev-all_pg_fixes",
-    "codeception/specify": "*",
-    "juy/profiler": "dev-master",
-    "summerstreet/woodling": "0.1.*",
-    "fzaninotto/Faker": "dev-master"
+    "way/generators":                 "dev-woi",
+    "davejamesmiller/laravel-boris":  "dev-master",
+    "lisachenko/go-aop-php":          "dev-master",
+    "mockery/mockery":                "dev-master", 
+    "codeception/codeception":        "dev-all_pg_fixes",
+    "codeception/specify":            "*",
+    "juy/profiler":                   "dev-master",
+    "summerstreet/woodling":          "0.1.*",
+    "fzaninotto/Faker":               "dev-master"
   },
 
   "autoload": {

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "2a65c651ea361748404adee60807f8e7",
+    "hash": "fa1f0b927b53ed6df4919afe14112d24",
     "packages": [
         {
             "name": "bitgandtter/google-api",
@@ -128,7 +128,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
+                    "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/"
                 },
@@ -146,7 +146,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -198,7 +198,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
+                    "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/"
                 },
@@ -1419,12 +1419,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "6518848c01bd4ef0c71463afdc284dfb1d71f63a"
+                "reference": "fdf130fe65457aedbc4639a22f4ef9d3be5c002c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/6518848c01bd4ef0c71463afdc284dfb1d71f63a",
-                "reference": "6518848c01bd4ef0c71463afdc284dfb1d71f63a",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/fdf130fe65457aedbc4639a22f4ef9d3be5c002c",
+                "reference": "fdf130fe65457aedbc4639a22f4ef9d3be5c002c",
                 "shasum": ""
             },
             "require": {
@@ -1460,7 +1460,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2013-08-23 15:31:47"
+            "time": "2013-08-26 05:49:51"
         },
         {
             "name": "symfony/http-kernel",
@@ -1645,12 +1645,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Translation.git",
-                "reference": "c2d964f4cc1149643bb382a1b0ccd6dd2b662af8"
+                "reference": "65f888291f0896ad492f9abc6dc05c998373aded"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Translation/zipball/c2d964f4cc1149643bb382a1b0ccd6dd2b662af8",
-                "reference": "c2d964f4cc1149643bb382a1b0ccd6dd2b662af8",
+                "url": "https://api.github.com/repos/symfony/Translation/zipball/65f888291f0896ad492f9abc6dc05c998373aded",
+                "reference": "65f888291f0896ad492f9abc6dc05c998373aded",
                 "shasum": ""
             },
             "require": {
@@ -1691,7 +1691,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "http://symfony.com",
-            "time": "2013-08-21 07:58:38"
+            "time": "2013-08-26 05:49:51"
         },
         {
             "name": "thujohn/analytics",
@@ -1742,12 +1742,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "fcf007e9a2e6c65594360ae7fa3c410ae8d56a11"
+                "reference": "cacbf201af1500852f83ad9c5d389a13d52f654e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/fcf007e9a2e6c65594360ae7fa3c410ae8d56a11",
-                "reference": "fcf007e9a2e6c65594360ae7fa3c410ae8d56a11",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/cacbf201af1500852f83ad9c5d389a13d52f654e",
+                "reference": "cacbf201af1500852f83ad9c5d389a13d52f654e",
                 "shasum": ""
             },
             "require": {
@@ -1783,7 +1783,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-08-07 12:53:34"
+            "time": "2013-08-26 08:23:34"
         }
     ],
     "packages-dev": [
@@ -1879,12 +1879,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Mink.git",
-                "reference": "6983f2a4ed9439803f8df57e1486995e2a8129a2"
+                "reference": "ed95d7dabc28a2f9cac45ce662be0645116212f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Mink/zipball/6983f2a4ed9439803f8df57e1486995e2a8129a2",
-                "reference": "6983f2a4ed9439803f8df57e1486995e2a8129a2",
+                "url": "https://api.github.com/repos/Behat/Mink/zipball/ed95d7dabc28a2f9cac45ce662be0645116212f5",
+                "reference": "ed95d7dabc28a2f9cac45ce662be0645116212f5",
                 "shasum": ""
             },
             "require": {
@@ -1926,7 +1926,7 @@
                 "testing",
                 "web"
             ],
-            "time": "2013-08-19 07:31:35"
+            "time": "2013-08-26 17:55:59"
         },
         {
             "name": "behat/mink-browserkit-driver",
@@ -2040,12 +2040,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSeleniumDriver.git",
-                "reference": "13a7d1c4d47cd03da9027e2d73a9efbd32aa5d6f"
+                "reference": "296d295f6d8538fa39660a48a87ea8071596826a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/13a7d1c4d47cd03da9027e2d73a9efbd32aa5d6f",
-                "reference": "13a7d1c4d47cd03da9027e2d73a9efbd32aa5d6f",
+                "url": "https://api.github.com/repos/Behat/MinkSeleniumDriver/zipball/296d295f6d8538fa39660a48a87ea8071596826a",
+                "reference": "296d295f6d8538fa39660a48a87ea8071596826a",
                 "shasum": ""
             },
             "require": {
@@ -2085,7 +2085,7 @@
                 "selenium",
                 "testing"
             ],
-            "time": "2013-08-19 09:55:13"
+            "time": "2013-08-26 14:30:16"
         },
         {
             "name": "behat/mink-selenium2-driver",
@@ -2093,12 +2093,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSelenium2Driver.git",
-                "reference": "f6156a785308491f93297108e6e47ebd75550550"
+                "reference": "185bbee848b44c4c6e0e63edefd85c2b1683c90e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/f6156a785308491f93297108e6e47ebd75550550",
-                "reference": "f6156a785308491f93297108e6e47ebd75550550",
+                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/185bbee848b44c4c6e0e63edefd85c2b1683c90e",
+                "reference": "185bbee848b44c4c6e0e63edefd85c2b1683c90e",
                 "shasum": ""
             },
             "require": {
@@ -2143,7 +2143,7 @@
                 "testing",
                 "webdriver"
             ],
-            "time": "2013-08-19 17:43:35"
+            "time": "2013-08-26 17:52:34"
         },
         {
             "name": "behat/mink-zombie-driver",
@@ -3284,12 +3284,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "b6b697a7a45e27f6d4e943deb4cc187031105907"
+                "reference": "780cdb1d5f693e2c8a9b7ce30b790ecb3e8194e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b6b697a7a45e27f6d4e943deb4cc187031105907",
-                "reference": "b6b697a7a45e27f6d4e943deb4cc187031105907",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/780cdb1d5f693e2c8a9b7ce30b790ecb3e8194e1",
+                "reference": "780cdb1d5f693e2c8a9b7ce30b790ecb3e8194e1",
                 "shasum": ""
             },
             "require": {
@@ -3350,7 +3350,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2013-08-25 12:31:49"
+            "time": "2013-08-26 13:31:34"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3551,16 +3551,16 @@
         },
         {
             "name": "way/generators",
-            "version": "dev-master",
+            "version": "dev-woi",
             "source": {
                 "type": "git",
-                "url": "https://github.com/JeffreyWay/Laravel-4-Generators.git",
-                "reference": "28744bd3e9563e837d803d9ba2525a3dc488288d"
+                "url": "https://github.com/sillylogger/Laravel-4-Generators.git",
+                "reference": "6b298742cede0078b5edd9fb6b743b56dfff3d87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JeffreyWay/Laravel-4-Generators/zipball/28744bd3e9563e837d803d9ba2525a3dc488288d",
-                "reference": "28744bd3e9563e837d803d9ba2525a3dc488288d",
+                "url": "https://api.github.com/repos/sillylogger/Laravel-4-Generators/zipball/6b298742cede0078b5edd9fb6b743b56dfff3d87",
+                "reference": "6b298742cede0078b5edd9fb6b743b56dfff3d87",
                 "shasum": ""
             },
             "require": {
@@ -3588,13 +3588,10 @@
                     "src/Way/Generators/Generators"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "authors": [
                 {
                     "name": "Jeffrey Way",
-                    "email": "jeffrey@jeffrey-way.com",
-                    "homepage": "http://jeffrye-way.com",
-                    "role": "Developer"
+                    "email": "jeffrey@jeffrey-way.com"
                 }
             ],
             "description": "Laravel 4 Generators",
@@ -3603,7 +3600,10 @@
                 "generators",
                 "laravel"
             ],
-            "time": "2013-08-25 20:55:35"
+            "support": {
+                "source": "https://github.com/sillylogger/Laravel-4-Generators/tree/woi"
+            },
+            "time": "2013-08-27 06:23:41"
         },
         {
             "name": "way/laravel-test-helpers",

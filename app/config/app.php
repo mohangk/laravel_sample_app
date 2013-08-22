@@ -115,11 +115,11 @@ return array(
     'Illuminate\Workbench\WorkbenchServiceProvider',
 
     'Basset\BassetServiceProvider',
+    'Way\Generators\GeneratorsServiceProvider',
 
     'DaveJamesMiller\Boris\BorisServiceProvider',
 
     'Thujohn\Analytics\AnalyticsServiceProvider',
-
     'Juy\Profiler\Providers\ProfilerServiceProvider',
 
     'TwigBridge\TwigServiceProvider',
@@ -191,8 +191,7 @@ return array(
     'Basset'          => 'Basset\Facade',
 
     'Analytics'       => 'Thujohn\Analytics\AnalyticsFacade',
-
-    'Profiler'      => 'Juy\Profiler\Facades\Profiler',
+    'Profiler'        => 'Juy\Profiler\Facades\Profiler',
 	),
 
 );
