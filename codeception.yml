@@ -4,6 +4,14 @@ paths:
   data: tests/_data
   helpers: tests/_helpers
 
+extensions:
+  enabled: [AcceptanceDevServer]
+  config:
+    AcceptanceDevServer:
+      host: 10.0.2.15
+      port: 3444
+
+
 settings:
   bootstrap: _bootstrap.php
   suite_class: \PHPUnit_Framework_TestSuite

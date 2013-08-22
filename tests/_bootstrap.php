@@ -1,5 +1,7 @@
 <?php
 
+include __DIR__.'/extensions/AcceptanceDevServer.php';
+
 // This is global bootstrap for autoloading
 
 include __DIR__.'/../vendor/autoload.php';
