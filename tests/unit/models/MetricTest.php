@@ -1,75 +1,70 @@
 <?php
 
+use Woodling\Woodling;
+
 class MetricTest extends \Codeception\TestCase\Test {
 
   use Codeception\Specify;
 
-  protected $metric;
+  public function testFactory() {
+    $metric = Woodling::retrieve('Metric');
 
-  protected function _before() {
-    $this->metric = new Metric(['site_id' => 'ga:123',
-                                'date' => '2013-08-01',
-                                'type' => 'ga:visits',
-                                'count' => 3]);
+    $this->specify("should be valid", function() use($metric) {
+      $this->assertTrue($metric->isValid());
+    });
   }
 
   public function testValidations() {
-    $this->assertTrue($this->metric->isValid());
-
     $this->specify("site_id is required", function() {
-      $this->metric->site_id = null;
-      $this->assertFalse($this->metric->isValid());
+      $metric = Woodling::retrieve('Metric', ['site_id' => null]);
+      $metric->site_id = null; # TODO: can't override sequence T_T
+      $this->assertFalse($metric->isValid());
       $this->assertRegExp('/required/',
-                          $this->metric->errors()->first('site_id'));
+                          $metric->errors()->first('site_id'));
     });
 
     $this->specify("date is required", function() {
-      $this->metric->date = null;
-      $this->assertFalse($this->metric->isValid());
+      $metric = Woodling::retrieve('Metric', ['date' => null]);
+      $this->assertFalse($metric->isValid());
       $this->assertRegExp('/required/',
-                          $this->metric->errors()->first('date'));
+                          $metric->errors()->first('date'));
     });
 
     $this->specify("type is required", function() {
-      $this->metric->type = null;
-      $this->assertFalse($this->metric->isValid());
+      $metric = Woodling::retrieve('Metric', ['type' => null]);
+      $this->assertFalse($metric->isValid());
       $this->assertRegExp('/required/',
-                          $this->metric->errors()->first('type'));
+                          $metric->errors()->first('type'));
     });
 
     $this->specify("count is required", function() {
-      $this->metric->count = null;
-      $this->assertFalse($this->metric->isValid());
+      $metric = Woodling::retrieve('Metric', ['count' => null]);
+      $this->assertFalse($metric->isValid());
       $this->assertRegExp('/required/',
-                          $this->metric->errors()->first('count'));
+                          $metric->errors()->first('count'));
     });
 
     $this->specify("count must be a valid integer", function() {
-      $this->metric->count = 'foobar';
-      $this->assertFalse($this->metric->isValid());
+      $metric = Woodling::retrieve('Metric', ['count' => 'foobar']);
+      $this->assertFalse($metric->isValid());
       $this->assertRegExp('/must be an integer/',
-                          $this->metric->errors()->first('count'));
+                          $metric->errors()->first('count'));
     });
   }
 
   public function testFindOrInitializeBy() {
-    $this->site_id = 'ga:123';
-    $this->date = '2013-08-08';
-    $this->type = 'foobar';
-    $this->count = 3;
-
     $this->specify("when one isn't found, it initializes a metric ", function() {
-      $metric = Metric::findOrInitializeBy(['date' => $this->date, 'type' => $this->type]);
-      $this->assertNotNull($metric);
-      $this->assertEquals($metric->date->toDateString(), $this->date);
-      $this->assertEquals($metric->type, $this->type);
+      $attr = array_only(Woodling::retrieve('Metric')->getAttributes(), ['site_id', 'type', 'date', 'count']);
+      $metric = Metric::findOrInitializeBy($attr);
+      $this->assertTrue($metric->isValid());
+      $this->assertEquals($metric->date, $attr['date']);
+      $this->assertEquals($metric->type, $attr['type']);
     });
 
     $this->specify("when one is found, it retrieves the first metric", function() {
-      $existingMetric = new Metric(['site_id' => $this->site_id, 'date' => $this->date, 'type' => $this->type, 'count' => $this->count]);
-      $existingMetric->save();
+      $existingMetric = Woodling::saved('Metric');
 
-      $foundMetric = Metric::findOrInitializeBy(['site_id' => $this->site_id, 'date' => $this->date, 'type' => $this->type]);
+      $foundMetric = Metric::findOrInitializeBy(array_only($existingMetric->getAttributes(), ['site_id', 'type', 'date', 'count']));
       $this->assertNotNull($foundMetric);
       $this->assertEquals($foundMetric->id, $existingMetric->id);
       $this->assertEquals($foundMetric->count, $existingMetric->count);
