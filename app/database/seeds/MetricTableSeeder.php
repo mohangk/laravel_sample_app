@@ -1,5 +1,7 @@
 <?php
-use \Carbon\Carbon as Carbon;
+
+use Woodling\Woodling;
+use Carbon\Carbon;
 
 class MetricTableSeeder extends Seeder {
 
@@ -16,18 +18,9 @@ class MetricTableSeeder extends Seeder {
       $pageviews = rand(10,50);
       $uniqueVisitors = rand(1, $pageviews);
 
-      Metric::create([
-        'date'=> $date,
-        'type'=> Metric::PAGEVIEWS,
-        'count'=> $pageviews,
-        'site_id'=>'ga:123']);
-
-      Metric::create([
-        'date'=> $date,
-        'type'=> Metric::UNIQUE_VISITORS,
-        'count'=> $uniqueVisitors,
-        'site_id'=>'ga:123']);
-
+      Woodling::saved("Metric", [ 'date' => $date, 'type' => Metric::PAGEVIEWS ]);
+      Woodling::saved("Metric", [ 'date' => $date, 'type' => Metric::UNIQUE_VISITORS ]);
+      
       $date->subDay();
       $daysToSeed -= 1;
     }

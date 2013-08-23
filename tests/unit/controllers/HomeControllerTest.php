@@ -1,41 +1,46 @@
 <?php
 
+use Woodling\Woodling;
+
 class HomeControllerTest extends ControllerTest {
 
   use Codeception\Specify;
 
   public function testIndex() {
-    $this->path = URL::action('HomeController@index', [], false);
+    $path = URL::action('HomeController@index', [], false);
 
-    $this->specify("it renders all users", function() {
-      $user = new User(['name' => 'Sean Carter',
-                        'email' => 'jay-z@example.com',
-                        'password' => 'password',
-                        'created_at' => new DateTime(),
-                        'updated_at' => new DateTime()]);
+    $this->specify("it renders all users", function() use($path) {
+      App::instance('User', $userMock = Mockery::mock('User'));
 
-      App::instance('User', Mockery::mock('User', ['all' => [$user]]));
+      $users = Woodling::retrieveList('User', 3);
+      $userMock->shouldReceive('all')->andReturn($users);
 
-      $response = $this->get($this->path);
+      $response = $this->get($path);
       $this->assertResponseOk();
-      $this->assertContains('Sean Carter', $response->getContent());
+
+      foreach($users as $user) {
+        $this->assertContains($user->name, $response->getContent());
+      }
     });
 
-    $this->specify("it renders all metrics", function() {
-      $metricMock = Mockery::mock('Metric');
+    $this->specify("it renders all metrics", function() use($path) {
+      App::instance('Metric', $metricMock = Mockery::mock('Metric'));
 
-      $uniqueVisitor = new Metric(['date' => new DateTime(), 'count' => 31337 ]);
-      $metricMock->shouldReceive('uniqueVisitors')->andReturn([$uniqueVisitor]);
+      $pageViews = Woodling::retrieveList("Metric", 3, [ 'type' => Metric::PAGEVIEWS ]);
+      $metricMock->shouldReceive('pageViews')->andReturn($pageViews);
 
-      $pageView = new Metric(['date' => new DateTime(), 'count' => 1234567 ]);
-      $metricMock->shouldReceive('pageViews')->andReturn([$pageView]);
+      $uniqueVisitors = Woodling::retrieveList("Metric", 3, [ 'type' => Metric::UNIQUE_VISITORS ]);
+      $metricMock->shouldReceive('uniqueVisitors')->andReturn($uniqueVisitors);
 
-      App::instance('Metric', $metricMock);
-
-      $response = $this->get($this->path);
+      $response = $this->get($path);
       $this->assertResponseOk();
-      $this->assertContains(strval($uniqueVisitor->count), $response->getContent());
-      $this->assertContains(strval($pageView->count), $response->getContent());
+
+      foreach($uniqueVisitors as $uniqueVisits) {
+        $this->assertContains(strval($uniqueVisits->count), $response->getContent());
+      }
+      foreach($pageViews as $pageView) {
+        $this->assertContains(strval($pageView->count), $response->getContent());
+      }
     });
   }
 

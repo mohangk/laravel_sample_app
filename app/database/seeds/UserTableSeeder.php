@@ -1,5 +1,7 @@
 <?php
 
+use Woodling\Woodling;
+
 class UserTableSeeder extends Seeder {
 
   public function run() {
@@ -8,23 +10,20 @@ class UserTableSeeder extends Seeder {
 
     DB::table('users')->delete();
 
-    User::create(array(
+    Woodling::saved("User", [
       'name' => 'Mohan Krishnan',
-      'email' => 'mohan@example.com',
-      'password' => Hash::make('password')
-    ));
+      'email' => 'mohan@example.com'
+      ]);
 
-    User::create(array(
+    Woodling::saved("User", [
       'name' => 'Tommy Sullivan',
-      'email' => 'tommy@example.com',
-      'password' => Hash::make('password')
-    ));
+      'email' => 'tommy@example.com'
+      ]);
 
-    User::create(array(
+    Woodling::saved("User", [
       'name' => 'Huong Vu',
-      'email' => 'zi@example.com',
-      'password' => Hash::make('password')
-    ));
+      'email' => 'zi@example.com'
+    ]);
 
     $user_count = User::count();
     $this->command->info("User table seeded with $user_count users.");

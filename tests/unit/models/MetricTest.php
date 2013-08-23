@@ -54,20 +54,26 @@ class MetricTest extends \Codeception\TestCase\Test {
 
   public function testFindOrInitializeBy() {
     $this->specify("when one isn't found, it initializes a metric ", function() {
-      $attr = array_only(Woodling::retrieve('Metric')->getAttributes(), ['site_id', 'type', 'date', 'count']);
-      $metric = Metric::findOrInitializeBy($attr);
-      $this->assertTrue($metric->isValid());
-      $this->assertEquals($metric->date, $attr['date']);
-      $this->assertEquals($metric->type, $attr['type']);
+      $metric = Woodling::retrieve('Metric');
+
+      $initializedMetric = Metric::findOrInitializeBy($metric->getAttributes(), ['site_id', 'type', 'date', 'count']);
+      $this->assertNull($initializedMetric->id);
+      $this->assertTrue($initializedMetric->isValid());
+      $this->assertEquals($initializedMetric->site_id, $metric->site_id);
+      $this->assertEquals($initializedMetric->type, $metric->type);
+      $this->assertEquals($initializedMetric->date, $metric->date);
+      $this->assertEquals($initializedMetric->count, $metric->count);
     });
 
     $this->specify("when one is found, it retrieves the first metric", function() {
-      $existingMetric = Woodling::saved('Metric');
+      $metric = Woodling::saved('Metric');
 
-      $foundMetric = Metric::findOrInitializeBy(array_only($existingMetric->getAttributes(), ['site_id', 'type', 'date', 'count']));
+      $foundMetric = Metric::findOrInitializeBy(array_only($metric->getAttributes(), ['site_id', 'type', 'date', 'count']));
       $this->assertNotNull($foundMetric);
-      $this->assertEquals($foundMetric->id, $existingMetric->id);
-      $this->assertEquals($foundMetric->count, $existingMetric->count);
+      $this->assertEquals($foundMetric->site_id, $metric->site_id);
+      $this->assertEquals($foundMetric->type, $metric->type);
+      $this->assertEquals($foundMetric->date, $metric->date);
+      $this->assertEquals($foundMetric->count, $metric->count);
     });
   }
 

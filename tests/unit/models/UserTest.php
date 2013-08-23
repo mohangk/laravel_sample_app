@@ -1,4 +1,5 @@
 <?php
+
 use Woodling\Woodling;
 
 class UserTest extends \Codeception\TestCase\Test {
