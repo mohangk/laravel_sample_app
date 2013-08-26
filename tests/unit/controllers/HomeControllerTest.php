@@ -4,8 +4,6 @@ use Woodling\Woodling;
 
 class HomeControllerTest extends ControllerTest {
 
-  use Codeception\Specify;
-
   public function testIndex() {
     $path = URL::action('HomeController@index', [], false);
 

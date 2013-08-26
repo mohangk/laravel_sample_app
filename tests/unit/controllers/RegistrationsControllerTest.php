@@ -4,8 +4,6 @@ use Woodling\Woodling;
 
 class RegistrationsControllerTest extends ControllerTest {
 
-  use Codeception\Specify;
-
   public function testIndex() {
     $path = URL::action('RegistrationsController@index', [], false);
 
@@ -24,7 +22,7 @@ class RegistrationsControllerTest extends ControllerTest {
       $response = $this->call('post', $path, $validInputs);
       $this->assertRedirectedToRoute('root');
     });
- 
+
     $this->specify("when invalid, flashes errors and redirects to index", function() use($path, $validInputs) {
       $invalidInputs = array_only($validInputs, ['name']);
       $response = $this->call('post', $path, $invalidInputs);

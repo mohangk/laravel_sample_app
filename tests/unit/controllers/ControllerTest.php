@@ -1,10 +1,11 @@
 <?php
- 
+
 class ControllerTest extends Illuminate\Foundation\Testing\TestCase {
- 
+  use Codeception\Specify;
+
   protected $useDatabase = false;
   protected $dbh = null;
- 
+
     /**
      * Creates the application.
      *
