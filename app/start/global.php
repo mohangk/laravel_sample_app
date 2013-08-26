@@ -1,5 +1,7 @@
 <?php
 
+use TwigBridge\Extensions\AliasLoader;
+
 /*
 |--------------------------------------------------------------------------
 | Register The Laravel Class Loader
@@ -89,3 +91,18 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+App::singleton('TwigEnv', function() {
+
+    $twig = new Twig_Environment(new LayoutTwigLoader());
+    $aliasLoader = new AliasLoader(App::getFacadeApplication(), $twig);
+
+    $twig->registerUndefinedFunctionCallback(
+            function ($name) use($aliasLoader) {
+                return $aliasLoader->getFunction($name);
+            }
+        );
+    return $twig;
+});
+
+

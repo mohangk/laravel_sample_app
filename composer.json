@@ -34,7 +34,8 @@
       "app/models",
       "app/database/migrations",
       "app/database/seeds",
-      "tests/unit/controllers/ControllerTest.php"
+      "tests/unit/controllers/ControllerTest.php",
+      "tests/unit/lib/LibTest.php"
     ]
   },
   "scripts": {
