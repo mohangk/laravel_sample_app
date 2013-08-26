@@ -10,7 +10,8 @@
     "laravel/framework": "4.0.*",
     "jasonlewis/basset": "dev-master",
     "hybridauth/hybridauth": "*",
-    "thujohn/analytics": "dev-master"
+    "thujohn/analytics": "dev-master",
+    "rcrowe/twigbridge": "dev-master"
   },
 
   "require-dev": {

@@ -121,6 +121,8 @@ return array(
     'Thujohn\Analytics\AnalyticsServiceProvider',
 
     'Juy\Profiler\Providers\ProfilerServiceProvider',
+
+    'TwigBridge\TwigServiceProvider',
 	),
 
 	/*
