@@ -7,9 +7,9 @@ class HomeController extends BaseController {
     $uniqueVisitorsByDate = App::make('Metric')->uniqueVisitors();
     $pageviewsByDate = App::make('Metric')->pageViews();
 
-    return View::make('home/index',[ 'users' => $users,
-                               'uniqueVisitorsByDate' => $uniqueVisitorsByDate,
-                               'pageviewsByDate' => $pageviewsByDate ]);
+    return View::make('home/index',[ 'scopes' => [ 'users' => $users,
+                                     'uniqueVisitorsByDate' => $uniqueVisitorsByDate,
+                                     'pageviewsByDate' => $pageviewsByDate]]);
 
 	}
 

@@ -10,6 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
 Route::resource('sign-in', 'SessionsController',
                 ['only' => ['index', 'store', 'destroy']]);
 
@@ -23,6 +24,11 @@ Route::resource('sign-up', 'RegistrationsController',
 
 Route::get('/', [ 'uses' => 'HomeController@index',
                   'as' => 'root']);
+
+Route::resource('layouts', 'LayoutsController',
+                ['only' => ['index', 'create', 'store']]);
+
+
 
 Route::any('{all}', function($uri){
   return Redirect::route('sign-in.index');
