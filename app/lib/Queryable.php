@@ -15,4 +15,8 @@ trait Queryable {
     }
   }
 
+  public static function last() {
+    return static::orderBy('id', 'DESC')->first();
+  }
+
 }
