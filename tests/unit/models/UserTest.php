@@ -21,7 +21,7 @@ class UserTest extends \Codeception\TestCase\Test {
       $this->assertFalse($user->isValid());
       $this->assertRegExp('/required/',
                           $user->errors()->first('name'));
-    });  
+    });
 
     $this->specify("email is required", function() {
       $user = Woodling::retrieve('User', ['email' => null]);
@@ -47,6 +47,21 @@ class UserTest extends \Codeception\TestCase\Test {
     });
 
   }
+  /**
+   * These update tests are more orientated to testing the integration of the Validatable trait with the update method
+   */
+   public function testUpdate() {
+     $user = Woodling::saved('User');
+     $this->specify("returns false when there is a validation error", function() use($user){
+       $this->assertFalse($user->update(['email' => null]));
+     });
 
+     $this->specify("returns false when there is a validation error", function() use($user){
+       $this->assertCount(0, User::where('email','test@yahoo.com')->get());
+       $this->assertTrue($user->update(['email' => 'test@yahoo.com']));
+       $this->assertCount(1, User::where('email','test@yahoo.com')->get());
+     });
+   }
 }
+
 
