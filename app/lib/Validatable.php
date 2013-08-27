@@ -4,6 +4,7 @@ use Illuminate\Support\MessageBag;
 
 trait Validatable {
 
+
   /**
    * The message bag instance containing validation error messages
    *
@@ -26,18 +27,19 @@ trait Validatable {
       }
     }
 
-    $customMessages = static::$customMessages;
-
     $data = $this->getAttributes(); // the data under validation
 
     // perform validation
-    $validator = Validator::make($data, $rules, $customMessages);
+    $validator = Validator::make($data, $rules, $this->getCustomMessages());
     $success   = $validator->passes();
     $this->errors = $validator->errors();
 
     return $success;
   }
 
+  public function getCustomMessages() {
+    return isset(static::$customMessages) ? static::$customMessages : [];
+  }
   /**
    * Save the model to the database.
    *
