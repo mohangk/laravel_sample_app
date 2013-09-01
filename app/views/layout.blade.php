@@ -17,6 +17,10 @@
         <h1>Laravel Quickstart</h1>
       </header>
 
+      <nav>
+      {{ link_to_route('nodes.index', 'Manage nodes') }} | {{ link_to_route('layouts.index','Manage layouts') }}
+      </nav>
+
       <article class="main">
         @if (Session::has('message'))
           <div class="flash message">
