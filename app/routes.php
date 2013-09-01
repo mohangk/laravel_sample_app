@@ -28,6 +28,12 @@ Route::get('/', [ 'uses' => 'HomeController@index',
 
 Route::resource('layouts', 'LayoutsController');
 
+/*
+ * This is useful, but it makes debugging in development hard as Laravel does no route related logging
+ * Must figure out how to do this only in Production
 Route::any('{all}', function($uri){
   return Redirect::route('sign-in.index');
 })->where('all', '.*');
+*/
+
+
