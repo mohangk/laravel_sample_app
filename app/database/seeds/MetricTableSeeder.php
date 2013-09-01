@@ -6,10 +6,7 @@ use Carbon\Carbon;
 class MetricTableSeeder extends Seeder {
 
   public function run() {
-
-    $this->command->info("The environment is ".App::environment());
-
-    DB::table('metrics')->delete();
+    DB::table('metrics')->truncate();
 
     $date = Carbon::today();
     $daysToSeed = 30;
@@ -20,7 +17,7 @@ class MetricTableSeeder extends Seeder {
 
       Woodling::saved("Metric", [ 'date' => $date, 'type' => Metric::PAGEVIEWS ]);
       Woodling::saved("Metric", [ 'date' => $date, 'type' => Metric::UNIQUE_VISITORS ]);
-      
+
       $date->subDay();
       $daysToSeed -= 1;
     }

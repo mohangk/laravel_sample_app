@@ -5,10 +5,7 @@ use Woodling\Woodling;
 class UserTableSeeder extends Seeder {
 
   public function run() {
-
-    $this->command->info("The environment is ".App::environment());
-
-    DB::table('users')->delete();
+    DB::table('users')->truncate();
 
     Woodling::saved("User", [
       'name' => 'Mohan Krishnan',

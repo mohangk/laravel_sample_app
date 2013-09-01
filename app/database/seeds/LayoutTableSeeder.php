@@ -8,7 +8,6 @@ use Carbon\Carbon;
 class LayoutTableSeeder extends Seeder {
 
   public function run() {
-
 $content = <<<'CONTENT'
   {{view_make('cells/users_table', { 'users': users }) | raw }}
   </br>
@@ -18,9 +17,7 @@ $content = <<<'CONTENT'
   </br>
 CONTENT;
 
-    $this->command->info("The environment is ".App::environment());
-
-    DB::table('layouts')->delete();
+    DB::table('layouts')->truncate();
 
     $layout = new Layout(['name' =>'home/index.twig', 'content'=> $content]);
     $layout->save();
