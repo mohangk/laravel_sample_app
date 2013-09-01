@@ -1,9 +1,10 @@
-@extends('layouts.scaffold')
-
-@section('main')
+@extends('layout')
+@section('content')
 
 <h1>Edit Node</h1>
-{{ Form::model($node, array('method' => 'PATCH', 'route' => array('nodes.update', $node->id))) }}
+{{ Form::model($node, ['method' => 'PATCH', 'route' => ['nodes.update', $node->id]]) }}
+
+  @include('shared/errors')
 	<ul>
         <li>
             {{ Form::label('name', 'Name:') }}

@@ -8,9 +8,8 @@ Woodling::seed('Node', function($blueprint) {
 
   $blueprint->name = function() use($faker) { return $faker->sentence(); };
   $blueprint->description = function() use($faker) { return $faker->sentence(); };
-  $blueprint->layout = function() { return Woodling::retrieve('Layout'); };
+  $blueprint->layout = function() { return Woodling::saved('Layout'); };
   $blueprint->created_at = Carbon::now();
   $blueprint->updated_at = Carbon::now();
-
 });
 

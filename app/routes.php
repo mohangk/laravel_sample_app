@@ -25,6 +25,7 @@ Route::resource('sign-up', 'RegistrationsController',
 Route::get('/', [ 'uses' => 'HomeController@index',
                   'as' => 'root']);
 
+Route::resource('nodes', 'NodesController');
 
 Route::resource('layouts', 'LayoutsController');
 

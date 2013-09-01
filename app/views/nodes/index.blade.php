@@ -1,6 +1,5 @@
-@extends('layouts.scaffold')
-
-@section('main')
+@extends('layout')
+@section('content')
 
 <h1>All Nodes</h1>
 

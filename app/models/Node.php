@@ -7,7 +7,7 @@ class Node extends Eloquent {
 	public static $rules = [
 		'name' => '',
 		'description' => '',
-		'layout_id' => '',
+		'layout_id' => 'required',
 		'parent_id' => ''
 	];
 
@@ -18,7 +18,17 @@ class Node extends Eloquent {
     return $this->belongsTo('Layout', 'layout_id');
   }
 
-  public function setLayoutAttribute($layout){
+  public function setLayoutAttribute($layout) {
     $this->layout()->associate($layout);
+  }
+
+  public function setParentIdAttribute($parent_id) {
+
+    if((int) $parent_id == 0){
+      $parent_id = null;
+    }
+
+    $this->attributes['parent_id'] = $parent_id;
+
   }
 }
