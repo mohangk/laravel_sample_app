@@ -1,9 +1,7 @@
 @extends('layout')
-
 @section('content')
-<h1>
-  Page Creator
-</h1>
+
+<h1>New Layout</h1>
 
 <ul>
 @foreach ($scopes as $scope)
@@ -11,7 +9,9 @@
 @endforeach
 </ul>
 
-  {{ Form::model($page, [ 'route' => ['page.update', $page->id]]) }}
+  {{ Form::model($layout, ['method' => 'PATCH', 'route' => ['layouts.update', $layout->id]]) }}
+
+    @include('shared/errors')
 
     <ul>
       <li>

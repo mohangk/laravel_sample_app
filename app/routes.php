@@ -25,10 +25,8 @@ Route::resource('sign-up', 'RegistrationsController',
 Route::get('/', [ 'uses' => 'HomeController@index',
                   'as' => 'root']);
 
-Route::resource('layouts', 'LayoutsController',
-                ['only' => ['index', 'create', 'store']]);
 
-
+Route::resource('layouts', 'LayoutsController');
 
 Route::any('{all}', function($uri){
   return Redirect::route('sign-in.index');

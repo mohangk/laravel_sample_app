@@ -13,7 +13,10 @@ class Layout extends Eloquent {
     'content' => 'required',
   ];
 
-  public static $customMessages = [];
+
+  public function nodes() {
+    return $this->hasMany('Node');
+  }
 
 }
 
