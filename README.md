@@ -89,6 +89,7 @@ You can specify a particular suite:
 ### Unit tests
 
 ### Factories
+- woodlings... you need one of these before generating
 
 ### Mocking
 
@@ -165,6 +166,10 @@ There are different parts to setting up step debugging for PHP. We will need to
 2. (optional) Add any new dependencies and vendor at the same time
   
     	./composer.phar require davejamesmiller/laravel-boris dev-master
+
+## Using the generator to build scaffolds
+
+## Laravel ORM associations
 
 # Setting up a fresh project from scratch (on MacOSX)
 
