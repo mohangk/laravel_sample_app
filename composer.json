@@ -14,7 +14,7 @@
       "url": "https://github.com/sillylogger/Laravel-4-Generators"
   }],
   "require": {
-    "laravel/framework":      "~4",
+    "laravel/framework":      "4.1.*@dev",
     "jasonlewis/basset":      "dev-master",
     "hybridauth/hybridauth":  "*",
     "thujohn/analytics":      "dev-master",
@@ -24,7 +24,6 @@
   "require-dev": {
     "way/generators":                 "dev-woi",
     "davejamesmiller/laravel-boris":  "dev-master",
-    "lisachenko/go-aop-php":          "dev-master",
     "mockery/mockery":                "dev-master", 
     "codeception/codeception":        "dev-all_pg_fixes",
     "codeception/specify":            "*",
