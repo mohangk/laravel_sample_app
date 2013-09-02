@@ -1,15 +1,15 @@
 <?php
 
 class Helper {
-  
+
   public static function controllerName() {
-    $controllerAndAction = Route::currentRouteAction();
+    $controllerAndAction = Route::current()->getActionName();
     $name = preg_replace('/controller.*/i', '', $controllerAndAction);
     return strtolower($name);
   }
 
   public static function actionName() {
-    $controllerAndAction = Route::currentRouteAction();
+    $controllerAndAction = Route::current()->getActionName();
     $name = preg_replace('/^[^@]+@/i', '', $controllerAndAction);
     $name = strtolower($name);
 

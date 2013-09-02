@@ -5,8 +5,6 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class NodesTest extends ControllerTest {
 
-  use Codeception\Specify;
-
 	public function testIndex() {
     $path = URL::action('NodesController@index', [], false);
 
@@ -89,7 +87,7 @@ class NodesTest extends ControllerTest {
 
     $this->specify("when valid, it persists the node and redirects", function() use($path, $node) {
       $validInputs = array_except($node->getAttributes(), ['updated_at', 'created_at']);
-      
+
       $response = $this->put($path, $validInputs);
       $this->assertRedirectedToRoute('nodes.show', ['nodes' => $node->id]);
     });
